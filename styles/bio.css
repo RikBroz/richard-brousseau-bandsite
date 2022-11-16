@@ -76,10 +76,10 @@ a:link {
 }
 
 .hero {
+  position: relative;
   background-image: url("../assets/images/hero-bio.jpg");
   background-size: cover;
   background-position: center;
-  opacity: 0.5;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -88,11 +88,23 @@ a:link {
   max-width: 100%;
   padding: 0px 16px;
 }
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(50, 50, 50, 0.5);
+  height: 50vh;
+  min-width: 100%;
+  max-width: 100%;
+}
 .hero__title {
+  position: relative;
   font-family: "Avenir Next";
   font-weight: 700;
   color: #FFFFFF;
   font-size: 24px;
   line-height: 32px;
-  opacity: 1;
 }/*# sourceMappingURL=bio.css.map */
