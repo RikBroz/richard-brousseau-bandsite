@@ -1,0 +1,118 @@
+$bandsite-black: #323232;
+$silver: #AFAFAF;
+$white: #FFFFFF;
+
+$bandsite-darkBlack: #000000;
+$mercury: #E1E1E1;
+$alabaster: #FAFAFA;
+
+
+@font-face {
+    font-family: "Avenir Next";
+    font-weight: 400;
+    src: url("../assets/fonts/AvenirNextLTPro.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Avenir Next";
+    font-weight: 600;
+    src: url("../assets/fonts/AvenirNextLTProDemi.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Avenir Next";
+    font-weight: 700;
+    src: url("../assets/fonts/AvenirNextLTProBold.ttf") format("truetype");
+}
+
+//Include mixins for mobile, tablet and desktop [Leave original content as mobile?]
+// @mixin mobile {
+
+// }
+//TABLET screen sizes are defined at 768px, but are applied to screen sizes from 768px to 1279px
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: 1280px) {
+        @content;
+    }
+}
+
+
+body {
+    font-family: "Avenir Next";
+    font-weight: 400;
+}
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+ul {
+    list-style-type: none;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+a {
+    &:link {
+        text-decoration: none;
+    }
+}
+
+
+.header {
+    display: flex;
+    background-color: $bandsite-black;
+    justify-content: center;
+    //!!! [Mobile]
+    padding: 0px 16px;
+
+    // width: 100%;
+
+    &__nav {
+        display: flex;
+
+        justify-content: space-between;
+        align-items: center;
+
+        padding-top: 24px;
+        flex-direction: column;
+    }
+}
+
+.header-logo {
+    // max-height: 20px;
+    // max-width: 120px;
+    height: 20px;
+    width: 120px;
+}
+
+.header-links {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+
+    &__link {
+        color: #FFFFFF;
+        max-width: fit-content;
+        
+        // margin: 0px 48px;
+        // padding: 16px 0px;
+        padding: 16px 48px;
+
+        &--active {
+            font-weight: bold;
+            border-bottom: 5px solid blue;
+        }
+
+        &--inactive {
+            color: $mercury;
+        }
+    }
+}
