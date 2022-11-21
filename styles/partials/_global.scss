@@ -31,13 +31,13 @@ $alabaster: #FAFAFA;
 // }
 //TABLET screen sizes are defined at 768px, but are applied to screen sizes from 768px to 1279px
 @mixin tablet {
-    @media (min-width: 768px) {
+    @media screen and (min-width: 768px) {
         @content;
     }
 }
 
 @mixin desktop {
-    @media (min-width: 1280px) {
+    @media screen and (min-width: 1280px) {
         @content;
     }
 }
@@ -71,7 +71,8 @@ a {
     background-color: $bandsite-black;
     justify-content: center;
     //!!! [Mobile]
-    padding: 0px 16px;
+    // padding: 0px 16px;
+    padding: 24px 16px 0px 16px;
 
     // width: 100%;
 
@@ -81,8 +82,23 @@ a {
         justify-content: space-between;
         align-items: center;
 
-        padding-top: 24px;
+        // padding-top: 24px;
         flex-direction: column;
+    }
+
+    @include tablet {
+        justify-content: flex-start;
+        // padding: 0px 36px;
+        padding: 24px 36px 0px 36px;
+
+        &__nav {
+            flex-direction: row;
+
+        }
+    }
+
+    @include desktop {
+        padding: 24px 56px 0px 56px;
     }
 }
 
@@ -91,6 +107,11 @@ a {
     // max-width: 120px;
     height: 20px;
     width: 120px;
+
+    @include tablet {
+        margin-bottom: 10px;
+        margin-right: 60px;
+    }
 }
 
 .header-links {
@@ -113,6 +134,14 @@ a {
 
         &--inactive {
             color: $mercury;
+        }
+    }
+
+    @include tablet {
+        &__link {
+            padding: 16px 0px;
+            // margin-right: 30px;
+            margin-right: 50px;
         }
     }
 }
