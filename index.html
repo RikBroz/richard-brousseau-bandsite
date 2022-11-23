@@ -35,12 +35,18 @@
         <div>
             <div class="about-musicians">
                 <h2 class="about-musicians__header">About the Musicians</h2>
-                <!--Possible div containing band image and quote in flex-->
-                <img class="about-musicians__img"
+                <section class="about-musicians__content">
+                    <img class="about-musicians__img"
+                        src="./assets/images/band.jpg"
+                        alt="Band Image" />
+                    <h3 class="about-musicians__quote">“We push each other to be the best. It's not uncommon for one of us to say ‘this needs to be better, back to the drawing board’”</h3>
+                    <p class="about-musicians__quoter">- Bryan Teddy, lead vocalist of The Bees Knees</p>
+                </section>
+                <!-- <img class="about-musicians__img"
                     src="./assets/images/band.jpg"
                     alt="Band Image" />
                 <h3 class="about-musicians__quote">“We push each other to be the best. It's not uncommon for one of us to say ‘this needs to be better, back to the drawing board’”</h3>
-                <p class="about-musicians__quote">- Bryan Teddy, lead vocalist of The Bees Knees</p>
+                <p class="about-musicians__quote">- Bryan Teddy, lead vocalist of The Bees Knees</p> -->
             </div>
             <div class="band-bio">
                 <h3 class="band-bio__band-name">The Bees Knees</h3>
@@ -96,67 +102,69 @@
 
     </main>
 
-    <footer>
-        <div>
-            <h2>Get in Touch</h2>
-            <div>
+    <footer class="page-footer">
+        <div class="page-footer__box">
+            <h2 class="page-footer__header">Get in Touch</h2>
+            <div class="page-footer__logos">
                 <a href="https://instagram.com">
-                    <img class=""
+                    <img class="page-footer__logos-image"
                         src="./assets/icons/Icon-instagram.svg"
                         alt="instagram" />
                 </a>
                 <a href="https://facebook.com">
-                    <img class=""
+                    <img class="page-footer__logos-image"
                         src="./assets/icons/Icon-facebook.svg"
                         alt="facebook" />
                 </a>
                 <a href="https://twitter.com">
-                    <img class=""
+                    <img class="page-footer__logos-image"
                         src="./assets/icons/Icon-twitter.svg"
                         alt="twitter" />
                 </a>
             </div>
         </div>
 
-        <div>
-            <div>
-                <div>
-                    <p>Cam Adams</p>
-                    <p>The Bees Knees Management</p>
+        <div class="page-footer__box page-footer__box--contacts">
+            <div class="page-footer__text-collection">
+                <div class="page-footer__text-box">
+                    <p class="page-footer__text page-footer__text--worker">Cam Adams</p>
+                    <p class="page-footer__text page-footer__text--worker">The Bees Knees Management</p>
                 </div>
-                <div>
-                    <p>503 Broadway Penthouse,</p>
-                    <p>New York, NY 10012, USA</p>
+                <div class="page-footer__text-box">
+                    <p class="page-footer__text">503 Broadway Penthouse,</p>
+                    <p class="page-footer__text">New York, NY 10012, USA</p>
                 </div>
-                <p>Info Email placeholder</p>
+                <p class="page-footer__text">info@thebeesknees.com</p>
             </div>
 
-            <div>
-                <div>
-                    <p>Pearl Gregg</p>
-                    <p>Limitless Artist Group</p>
+            <div class="page-footer__text-collection">
+                <div class="page-footer__text-box">
+                    <p class="page-footer__text page-footer__text--worker">Pearl Gregg</p>
+                    <p class="page-footer__text page-footer__text--worker">Limitless Artist Group</p>
                 </div>
-                <div>
-                    <p>Booking Agent for</p>
-                    <p>US / South America / Japan</p>
+                <div class="page-footer__text-box">
+                    <p class="page-footer__text">Booking Agent for</p>
+                    <p class="page-footer__text">US / South America / Japan</p>
                 </div>
-                <p>Pearl Gregg Email placeholder</p>
+                <p class="page-footer__text">pearl.gregg@limitlessag.com</p>
             </div>
 
-            <div>
-                <div>
-                    <p>Carsor Whyte</p>
-                    <p>ARCH Entertainment</p>
+            <div class="page-footer__text-collection">
+                <div class="page-footer__text-box">
+                    <p class="page-footer__text page-footer__text--worker">Carsor Whyte</p>
+                    <p class="page-footer__text page-footer__text--worker">ARCH Entertainment</p>
                 </div>
-                <div>
-                    <p>Booking Agent for</p>
-                    <p>UK / EU / AU</p>
+                <div class="page-footer__text-box">
+                    <p class="page-footer__text">Booking Agent for</p>
+                    <p class="page-footer__text">UK / EU / AU</p>
                 </div>
-                <p>Carsor Whyte Email placeholder</p>
+                <p class="page-footer__text">cwhyte@archentertainment.com</p>
             </div>
         </div>
-        
-        <p>Copyright The Bees Knees © 2021 All Rights Reserved</p>
+        <img class="page-footer__website-logo"
+            src="./assets/logos/Logo-bandsite.svg"
+            alt="Top BandSite logo" />
+        <p class="page-footer__text">Copyright The Bees Knees © 2021 All Rights Reserved</p>
     </footer>
 </body>
 </html>

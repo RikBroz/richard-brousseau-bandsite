@@ -145,3 +145,123 @@ a {
         }
     }
 }
+
+.page-footer {
+    background-color: $bandsite-black;
+    display: flex;
+    flex-direction: column;
+    color: $white;
+
+    // padding: 24px 16px 0px 16px;
+    padding: 24px 16px 16px 16px;
+
+    &__box {
+        padding-bottom: 16px;
+        
+        &--contacts {
+            display: flex;
+            flex-direction: column;
+        }
+
+    }
+
+    &__header {
+        font-size: 24px;
+        line-height: 32px;
+        // font-weight: 700;
+        font-weight: 600;
+
+        padding-bottom: 16px;
+    }
+
+    &__logos {
+        display: flex;
+        justify-content: space-between;
+        width: 40%;
+    }
+
+    &__logos-image {
+        // min-width: 10px;
+        // max-width: 20px;
+        // min-height: 10px;
+        // max-height: 20px;
+    }
+
+    &__text-collection {
+        padding-bottom: 16px;
+
+    }
+
+    &__text-box {
+        padding-bottom: 16px;
+
+    }
+
+    &__text {
+        font-size: 13px;
+        line-height: 18px;
+        color: $mercury;
+
+
+        &--worker {
+            color: $white;
+            font-weight: 600;
+        }
+    }
+
+    &__website-logo {
+        //similarities to 'header__root'
+        // height: 20px;
+        // width: 120px;
+        @extend .header-logo;
+    }
+
+    @include tablet {
+        padding: 48px 36px 36px 36px;
+
+        &__box {
+            display: flex;
+            align-items: baseline;
+            padding-bottom: 36px;
+
+            &--contacts {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        &__header {
+            font-size: 36px;
+            line-height: 44px;
+            font-weight: 700;
+        }
+
+        &__logos {
+            justify-content: space-evenly;
+            width: 30%;
+        }
+
+        &__text-collection {
+            padding-bottom: 36px;
+    
+        }
+    
+        &__text-box {
+            padding-bottom: 36px;
+    
+        }
+    
+        &__text {
+            font-size: 14px;
+            line-height: 20px;
+        }
+
+        &__website-logo {
+            position: absolute;
+            right: 50px;
+            margin-top: 10px;
+            margin-bottom: 0;
+            margin-right: 0;
+        }
+    }
+}

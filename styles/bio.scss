@@ -79,10 +79,18 @@
         padding-bottom: 16px;
     }
 
+    &__content {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
     &__img {
         width: 288px;
-        height: 177.58px;
+        // height: 177.58px;
         padding-bottom: 16px;
+        min-width: 100%;
+        height: auto;
     }
 
     &__quote {
@@ -91,6 +99,52 @@
         font-weight: 600;
         padding-bottom: 16px;
     }
+
+    &__quoter {
+        @extend .about-musicians__quote;
+    }
+    
+    @include tablet {
+        padding: 0px 36px 36px 36px;
+
+        &__header {
+            font-size: 36px;
+            line-height: 44px;
+            padding-top: 48px;
+            padding-bottom: 36px;
+        }
+
+        &__content {
+            padding: 0px 24px 0px 24px;
+        }
+
+        &__img {
+            padding-bottom: 36px;
+        }
+
+        &__quote {
+            font-size: 24px;
+            line-height: 32px;
+        }
+
+        &__quoter {
+            font-size: 14px;
+            line-height: 22px;
+        }
+    }
+    
+    @include desktop {
+        padding: 0px 56px 56px 56px;
+
+        &__content {
+            padding: 0px 32px 0px 32px;
+        }
+
+        &__quote {
+            width: 65%;
+        }
+    }
+    
 }
 
 .band-bio {
@@ -119,12 +173,21 @@
             font-size: 24px;
             line-height: 22px;
             padding-bottom: 36px;
-
             margin-left: 25px;
+
             //position: relative;
             //left: 3.5/2%;
         }
     }
+
+    @include desktop {
+        padding: 0px 56px;
+
+        &__band-name {
+            margin-left: 32px;
+        }
+    }
+    
 }
 
 .band-bio-text-box {
@@ -153,7 +216,10 @@
 
     @include desktop {
         &__card {
-            width: 34.5%;
+            // width: 34.5%;
+            //Consider changing to later
+            width: 35.5%;
+            margin-left: 32px;
         }
     }
 }
