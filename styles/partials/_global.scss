@@ -269,6 +269,7 @@ a {
 
      
     @include desktop {
+        //Possibly use instead with margin-left of 24px for elements within?
         //padding: 48px 56px 56px 56px;
 
         //padding: 48px 80px 80px 80px;
@@ -276,6 +277,8 @@ a {
 
         &__box {
             width: 55%;
+
+            //margin-left: 24px;
 
             &--contacts {
                 width: 60%
@@ -291,6 +294,8 @@ a {
             // width: 25%;
             
             width: 30%;
+            
+            //For margin-left of 24px
             //width: 35%;
         }
 
