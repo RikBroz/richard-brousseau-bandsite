@@ -256,6 +256,10 @@
             padding-top: 48px;
         }
     }
+    
+    @include desktop {
+        padding: 0px 56px;
+    }
 }
 .photo-section {
     display: flex;

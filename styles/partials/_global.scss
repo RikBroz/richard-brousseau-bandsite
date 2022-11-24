@@ -129,7 +129,7 @@ a {
 
         &--active {
             font-weight: bold;
-            border-bottom: 5px solid blue;
+            border-bottom: 5px solid $white;
         }
 
         &--inactive {
@@ -233,12 +233,14 @@ a {
         &__header {
             font-size: 36px;
             line-height: 44px;
-            font-weight: 700;
+            //Remove to have font-weight be 600
+            //font-weight: 700;
         }
 
         &__logos {
             justify-content: space-evenly;
-            width: 30%;
+            //width: 30%;
+            width: 32%;
         }
 
         &__text-collection {
@@ -264,4 +266,37 @@ a {
             margin-right: 0;
         }
     }
+
+     
+    @include desktop {
+        //padding: 48px 56px 56px 56px;
+
+        //padding: 48px 80px 80px 80px;
+        padding: 48px 80px 56px 80px;
+
+        &__box {
+            width: 55%;
+
+            &--contacts {
+                width: 60%
+            }
+        }
+
+        &__header {
+            font-weight: 600;
+        }
+
+        &__logos {
+            //width: 20%;
+            // width: 25%;
+            
+            width: 30%;
+            //width: 35%;
+        }
+
+        &__website-logo {
+            margin-right: 50px;
+        }
+    }
+    
 }
