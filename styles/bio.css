@@ -32,6 +32,10 @@ ul {
           margin-block-end: 0em;
 }
 
+li {
+  list-style-type: none;
+}
+
 a:link {
   text-decoration: none;
 }
@@ -55,6 +59,7 @@ a:link {
   }
   .header__nav {
     flex-direction: row;
+    align-items: center;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -79,23 +84,33 @@ a:link {
   list-style-type: none;
   justify-content: space-between;
 }
-.header-links__link {
-  color: #FFFFFF;
+.header-links__item {
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
   padding: 16px 48px;
 }
-.header-links__link--active {
-  font-weight: bold;
+.header-links__item--active, .header-links__item:hover {
   border-bottom: 5px solid #FFFFFF;
 }
-.header-links__link--inactive {
+.header-links__link {
   color: #E1E1E1;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+.header-links__link--active {
+  font-weight: 700;
+}
+.header-links__link--active, .header-links__link:hover {
+  color: #FFFFFF;
+}
+.header-links__link:hover {
+  font-weight: 600;
 }
 @media screen and (min-width: 768px) {
-  .header-links__link {
-    padding: 16px 0px;
+  .header-links__item {
+    padding: 16px 0px 24px 0px;
     margin-right: 50px;
   }
 }
@@ -181,10 +196,11 @@ a:link {
 }
 @media screen and (min-width: 1280px) {
   .page-footer {
-    padding: 48px 80px 56px 80px;
+    padding: 48px 56px 56px 56px;
   }
   .page-footer__box {
     width: 55%;
+    margin-left: 24px;
   }
   .page-footer__box--contacts {
     width: 60%;
@@ -193,7 +209,7 @@ a:link {
     font-weight: 600;
   }
   .page-footer__logos {
-    width: 30%;
+    width: 35%;
   }
   .page-footer__website-logo {
     margin-right: 50px;

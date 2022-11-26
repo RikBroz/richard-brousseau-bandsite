@@ -12,16 +12,37 @@
 <body>
     <header class="header">
         <nav class="header__nav">
-            <img class="header-logo"
+            <a href="./index.html">
+                <img class="header-logo"
+                    src="./assets/logos/Logo-bandsite.svg"
+                    alt="Top BandSite logo" />
+            </a>
+            <!-- <img class="header-logo"
                 src="./assets/logos/Logo-bandsite.svg"
-                alt="Top BandSite logo" />
+                alt="Top BandSite logo" /> -->
 
-            <ul class="header-links">
+            <!-- <ul class="header-links">
                 <li class="header-links__link header-links__link--active">
-                    Biography
+                    <a href="./index.html" >
+                        Biography
+                    </a>
                 </li>
                 <li class="header-links__link header-links__link--inactive">
-                    Shows
+                    <a href="./">
+                        Shows
+                    </a>
+                </li> -->
+            <ul class="header-links">
+                <li class="header-links__item header-links__item--active">
+                    <a href="./index.html" 
+                        class="header-links__link header-links__link--active">
+                        Biography
+                    </a>
+                </li>
+                <li class="header-links__item">
+                    <a href="./" class="header-links__link">
+                        Shows
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -153,7 +174,11 @@
         <img class="page-footer__website-logo"
             src="./assets/logos/Logo-bandsite.svg"
             alt="Top BandSite logo" />
-        <p class="page-footer__text">Copyright The Bees Knees © 2021 All Rights Reserved</p>
+        
+        <div class="page-footer__box">
+            <p class="page-footer__text">Copyright The Bees Knees © 2021 All Rights Reserved</p>
+        </div>
+        <!-- <p class="page-footer__text">Copyright The Bees Knees © 2021 All Rights Reserved</p> -->
     </footer>
 </body>
 </html>
