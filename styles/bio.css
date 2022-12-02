@@ -1,20 +1,20 @@
 @font-face {
-  font-family: "Avenir Next";
+  font-family: "Avenir Next Regular";
   font-weight: 400;
-  src: url("../assets/fonts/AvenirNextLTPro.ttf") format("truetype");
+  src: url("../assets/fonts/AvenirNextLTPro-Regular.otf") format("opentype"), url("../assets/fonts/AvenirNextLTPro.ttf") format("truetype");
 }
 @font-face {
-  font-family: "Avenir Next";
+  font-family: "Avenir Next Demi";
   font-weight: 600;
-  src: url("../assets/fonts/AvenirNextLTProDemi.ttf") format("truetype");
+  src: url("../assets/fonts/AvenirNextLTPro-Demi.otf") format("opentype"), url("../assets/fonts/AvenirNextLTProDemi.ttf") format("truetype");
 }
 @font-face {
-  font-family: "Avenir Next";
+  font-family: "Avenir Next Bold";
   font-weight: 700;
-  src: url("../assets/fonts/AvenirNextLTProBold.ttf") format("truetype");
+  src: url("../assets/fonts/AvenirNextLTPro-Bold.otf") format("opentype"), url("../assets/fonts/AvenirNextLTProBold.ttf") format("truetype");
 }
 body {
-  font-family: "Avenir Next";
+  font-family: "Avenir Next Regular";
   font-weight: 400;
 }
 
@@ -64,7 +64,7 @@ a:link {
 }
 @media screen and (min-width: 1280px) {
   .header {
-    padding: 24px 56px 0px 56px;
+    padding: 24px 56px 0px 80px;
   }
 }
 
@@ -100,13 +100,13 @@ a:link {
   max-width: fit-content;
 }
 .header-links__link--active {
-  font-weight: 700;
+  font-family: "Avenir Next Bold";
 }
 .header-links__link--active, .header-links__link:hover {
   color: #FFFFFF;
 }
 .header-links__link:hover {
-  font-weight: 600;
+  font-family: "Avenir Next Demi";
 }
 @media screen and (min-width: 768px) {
   .header-links__item {
@@ -132,7 +132,7 @@ a:link {
 .page-footer__header {
   font-size: 24px;
   line-height: 32px;
-  font-weight: 600;
+  font-family: "Avenir Next Demi";
   padding-bottom: 16px;
 }
 .page-footer__logos {
@@ -153,7 +153,7 @@ a:link {
 }
 .page-footer__text--worker {
   color: #FFFFFF;
-  font-weight: 600;
+  font-family: "Avenir Next Demi";
 }
 @media screen and (min-width: 768px) {
   .page-footer {
@@ -205,9 +205,6 @@ a:link {
   .page-footer__box--contacts {
     width: 60%;
   }
-  .page-footer__header {
-    font-weight: 600;
-  }
   .page-footer__logos {
     width: 35%;
   }
@@ -243,8 +240,7 @@ a:link {
 }
 .hero__title {
   position: relative;
-  font-family: "Avenir Next";
-  font-weight: 700;
+  font-family: "Avenir Next Bold";
   color: #FFFFFF;
   font-size: 24px;
   line-height: 32px;
@@ -269,6 +265,10 @@ a:link {
   .hero::before {
     height: 150vh;
   }
+  .hero__title {
+    margin-left: 40px;
+    width: 50%;
+  }
 }
 
 .about-musicians {
@@ -277,7 +277,7 @@ a:link {
 .about-musicians__header {
   font-size: 24px;
   line-height: 32px;
-  font-weight: 600;
+  font-family: "Avenir Next Demi";
   padding-bottom: 16px;
 }
 .about-musicians__content {
@@ -294,7 +294,7 @@ a:link {
 .about-musicians__quote, .about-musicians__quoter {
   font-size: 14px;
   line-height: 22px;
-  font-weight: 600;
+  font-family: "Avenir Next Demi";
   padding-bottom: 16px;
 }
 @media screen and (min-width: 768px) {
@@ -343,7 +343,7 @@ a:link {
 .band-bio__band-name {
   font-size: 14px;
   line-height: 22px;
-  font-weight: 600;
+  font-family: "Avenir Next Demi";
   padding-bottom: 16px;
 }
 @media screen and (min-width: 768px) {
@@ -374,7 +374,7 @@ a:link {
 .band-bio-text-box__card {
   font-size: 13px;
   line-height: 18px;
-  font-weight: 400;
+  font-family: "Avenir Next Regular";
   padding-bottom: 16px;
 }
 @media screen and (min-width: 768px) {
@@ -405,7 +405,7 @@ a:link {
 .photo-gallery__header {
   font-size: 24px;
   line-height: 32px;
-  font-weight: 600;
+  font-family: "Avenir Next Demi";
   padding-top: 24px;
 }
 @media screen and (min-width: 768px) {

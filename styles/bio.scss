@@ -1,11 +1,7 @@
 @use './partials/global' as *;
 
 .hero {
-
     position: relative;
-    // height: 100vh;
-    // width: 100%;
-    
     background-image: url('../assets/images/hero-bio.jpg');
     background-size: cover;
     background-position: center;
@@ -35,9 +31,9 @@
 
     &__title {
         position: relative;
-        
-        font-family: "Avenir Next";
-        font-weight: 700;
+        // font-family: "Avenir Next";
+        // font-weight: 700;
+        font-family: "Avenir Next Bold";
         color: $white;
         font-size: 24px;
         line-height: 32px;
@@ -54,6 +50,8 @@
         &__title {
             font-size: 60px;
             line-height: 68px;
+            //Choose this
+            // width: 50%;
         }
     }
 
@@ -63,11 +61,16 @@
         &::before {
             height: 150vh;
         }
+
+        //Choose this
+        &__title {
+            margin-left: 40px;
+            width: 50%;
+        }
     }
 }
 
 .about-musicians {
-
     // padding-top: 24px;
     padding: 24px 16px 0px 16px;
     // padding-bottom: 16px;
@@ -75,7 +78,9 @@
     &__header {
         font-size: 24px;
         line-height: 32px;
-        font-weight: 600;
+        //Replace with font-family [font-weight part of font-face]
+        //font-weight: 600;
+        font-family: "Avenir Next Demi";
         padding-bottom: 16px;
     }
 
@@ -96,7 +101,9 @@
     &__quote {
         font-size: 14px;
         line-height: 22px;
-        font-weight: 600;
+        //Replace with font-family [font-weight part of font-face]
+        // font-weight: 600;
+        font-family: "Avenir Next Demi";
         padding-bottom: 16px;
     }
 
@@ -144,7 +151,6 @@
             width: 65%;
         }
     }
-    
 }
 
 .band-bio {
@@ -156,15 +162,11 @@
     &__band-name {
         font-size: 14px;
         line-height: 22px;
-        font-weight: 600;
+        //Replace with font-family [font-weight part of font-face]
+        //font-weight: 600;
+        font-family: "Avenir Next Demi";
         padding-bottom: 16px;
     }
-
-    // &__text {
-    //     font-size: 13px;
-    //     line-height: 18px;
-    //     font-weight: 400;
-    // }
 
     @include tablet {
         padding: 0px 36px;
@@ -174,9 +176,6 @@
             line-height: 22px;
             padding-bottom: 36px;
             margin-left: 25px;
-
-            //position: relative;
-            //left: 3.5/2%;
         }
     }
 
@@ -187,7 +186,6 @@
             margin-left: 32px;
         }
     }
-    
 }
 
 .band-bio-text-box {
@@ -198,7 +196,9 @@
     &__card {
         font-size: 13px;
         line-height: 18px;
-        font-weight: 400;
+        //Replace with font-family [font-weight part of font-face]
+        //font-weight: 400;
+        font-family: "Avenir Next Regular";
         padding-bottom: 16px;
     }
 
@@ -216,8 +216,6 @@
 
     @include desktop {
         &__card {
-            // width: 34.5%;
-            //Consider changing to later
             width: 35.5%;
             margin-left: 32px;
         }
@@ -230,24 +228,20 @@
 
     display: flex;
     flex-direction: column;
-    //justify-content: flex-start;
 
     &__header {
-        
         font-size: 24px;
         line-height: 32px;
-        font-weight: 600;
+        //Replace with font-family [font-weight part of font-face]
+        // font-weight: 600;
+        font-family: "Avenir Next Demi";
         padding-top: 24px;
-
-        //Include for tablet
-        // padding-bottom: 16px;
     }
 
     @include tablet {
         padding: 0px 36px;
         
         &__header {
-            
             font-size: 36px;
             line-height: 44px;
             padding-bottom: 16px;
@@ -268,8 +262,6 @@
     padding-bottom: 16px;
 
     &__image {
-        // margin: 16px 0px;
-        // padding: 16px 0px;
         padding-top: 16px;
     }
 
@@ -283,7 +275,6 @@
         &__image {
             width: 30%;
             margin: 1vw 0;
-
             padding: 0;
         }
     }
