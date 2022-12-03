@@ -48,6 +48,12 @@ $alabaster: #FAFAFA;
     font-family: $ff;
 }
 
+/*@mixin flexbox-properties($jc, $fd, $ais) {
+    justify-content: $jc;
+    flex-direction: $fd;
+    align-items: $ai;
+}*/
+
 
 body {
     font-family: "Avenir Next Regular";

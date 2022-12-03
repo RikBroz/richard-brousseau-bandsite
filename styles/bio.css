@@ -13,6 +13,11 @@
   font-weight: 700;
   src: url("../assets/fonts/AvenirNextLTPro-Bold.otf") format("opentype"), url("../assets/fonts/AvenirNextLTProBold.ttf") format("truetype");
 }
+/*@mixin flexbox-properties($jc, $fd, $ais) {
+    justify-content: $jc;
+    flex-direction: $fd;
+    align-items: $ai;
+}*/
 body {
   font-family: "Avenir Next Regular";
 }
