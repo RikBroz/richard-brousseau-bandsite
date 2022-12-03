@@ -42,10 +42,15 @@ $alabaster: #FAFAFA;
 }
 
 
+@mixin type-kit($fs, $lh, $ff: "Avenir Next Regular") {
+    font-size: $fs;
+    line-height: $lh;
+    font-family: $ff;
+}
+
+
 body {
-    // font-family: "Avenir Next";
     font-family: "Avenir Next Regular";
-    font-weight: 400;
 }
 * {
     box-sizing: border-box;
@@ -78,6 +83,7 @@ a {
 
     &__nav {
         display: flex;
+        //***
         justify-content: space-between;
         align-items: center;
         flex-direction: column;
@@ -94,8 +100,6 @@ a {
     }
 
     @include desktop {
-        // padding: 24px 56px 0px 56px;
-        //Choose this
         padding: 24px 56px 0px 80px;
     }
 }
@@ -118,8 +122,6 @@ a {
     &__item {
         max-width: fit-content;
         padding: 16px 48px;
-        //Choose this
-        //padding: 16px 50px;
 
         &--active, &:hover {
             border-bottom: 5px solid $white;
@@ -131,23 +133,18 @@ a {
         max-width: fit-content;
         
         &--active {
-            //Replace with font-family [font-weight part of font-face]
-            // font-weight: 700;
             font-family: "Avenir Next Bold";
         }
         &--active, &:hover {
             color: $white;
         }
         &:hover {
-            //Replace with font-family [font-weight part of font-face]
-            // font-weight: 600;
-            font-family: "Avenir Next Demi"
+            font-family: "Avenir Next Demi";
         }
     }
 
     @include tablet {
         &__item {
-            //padding: 24px 0px;
             padding: 16px 0px 24px 0px;
             margin-right: 50px;
         }
@@ -159,8 +156,6 @@ a {
     display: flex;
     flex-direction: column;
     color: $white;
-
-    // padding: 24px 16px 0px 16px;
     padding: 24px 16px 16px 16px;
 
     &__box {
@@ -173,12 +168,11 @@ a {
     }
 
     &__header {
-        font-size: 24px;
-        line-height: 32px;
-        // font-weight: 700;
-        //Replace with font-family [font-weight part of font-face]
-        //font-weight: 600;
-        font-family: "Avenir Next Demi";
+        @include type-kit(24px, 32px, "Avenir Next Demi");
+        // font-size: 24px;
+        // line-height: 32px;
+        // font-family: "Avenir Next Demi";
+
         padding-bottom: 16px;
     }
 
@@ -204,14 +198,14 @@ a {
     }
 
     &__text {
-        font-size: 13px;
-        line-height: 18px;
+        @include type-kit(13px, 18px);
+        // font-size: 13px;
+        // line-height: 18px;
+
         color: $mercury;
 
         &--worker {
             color: $white;
-            //Replace with font-family [font-weight part of font-face]
-            // font-weight: 600;
             font-family: "Avenir Next Demi";
         }
     }
@@ -238,15 +232,14 @@ a {
         }
 
         &__header {
-            font-size: 36px;
-            line-height: 44px;
-            //Remove to have font-weight be 600
-            //font-weight: 700;
+            //***
+            @include type-kit(36px, 44px, "Avenir Next Demi");
+            // font-size: 36px;
+            // line-height: 44px;
         }
 
         &__logos {
             justify-content: space-evenly;
-            //width: 30%;
             width: 32%;
         }
 
@@ -259,8 +252,14 @@ a {
         }
     
         &__text {
-            font-size: 14px;
-            line-height: 20px;
+            //Don't use, won't have 
+            @include type-kit(14px, 20px);
+            // font-size: 14px;
+            // line-height: 20px;
+
+            &--worker {
+                font-family: "Avenir Next Demi";
+            }
         }
 
         &__website-logo {
@@ -273,10 +272,7 @@ a {
     }
 
     @include desktop {
-        //Possibly use instead with margin-left of 24px for elements within?
         padding: 48px 56px 56px 56px;
-        //padding: 48px 80px 80px 80px;
-        // padding: 48px 80px 56px 80px;
 
         &__box {
             width: 55%;
@@ -287,17 +283,7 @@ a {
             }
         }
 
-        // &__header {
-        //     //Replace with font-family [font-weight part of font-face]
-        //     //Already have for main section - REMOVE
-        //     font-weight: 600;
-        // }
-
         &__logos {
-            //width: 20%;
-            // width: 25%;
-            // width: 30%;  
-            //For margin-left of 24px
             width: 35%;
         }
 

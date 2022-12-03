@@ -15,7 +15,6 @@
 }
 body {
   font-family: "Avenir Next Regular";
-  font-weight: 400;
 }
 
 * {
@@ -149,6 +148,7 @@ a:link {
 .page-footer__text {
   font-size: 13px;
   line-height: 18px;
+  font-family: "Avenir Next Regular";
   color: #E1E1E1;
 }
 .page-footer__text--worker {
@@ -171,6 +171,7 @@ a:link {
   .page-footer__header {
     font-size: 36px;
     line-height: 44px;
+    font-family: "Avenir Next Demi";
   }
   .page-footer__logos {
     justify-content: space-evenly;
@@ -185,6 +186,10 @@ a:link {
   .page-footer__text {
     font-size: 14px;
     line-height: 20px;
+    font-family: "Avenir Next Regular";
+  }
+  .page-footer__text--worker {
+    font-family: "Avenir Next Demi";
   }
   .page-footer__website-logo {
     position: absolute;
@@ -240,10 +245,10 @@ a:link {
 }
 .hero__title {
   position: relative;
-  font-family: "Avenir Next Bold";
-  color: #FFFFFF;
   font-size: 24px;
   line-height: 32px;
+  font-family: "Avenir Next Demi";
+  color: #FFFFFF;
 }
 @media screen and (min-width: 768px) {
   .hero {
@@ -256,6 +261,7 @@ a:link {
   .hero__title {
     font-size: 60px;
     line-height: 68px;
+    font-family: "Avenir Next Demi";
   }
 }
 @media screen and (min-width: 1280px) {
@@ -304,6 +310,7 @@ a:link {
   .about-musicians__header {
     font-size: 36px;
     line-height: 44px;
+    font-family: "Avenir Next Demi";
     padding-top: 48px;
     padding-bottom: 36px;
   }
@@ -316,10 +323,12 @@ a:link {
   .about-musicians__quote, .about-musicians__quoter {
     font-size: 24px;
     line-height: 32px;
+    font-family: "Avenir Next Demi";
   }
   .about-musicians__quoter {
     font-size: 14px;
     line-height: 22px;
+    font-family: "Avenir Next Demi";
   }
 }
 @media screen and (min-width: 1280px) {
@@ -353,6 +362,7 @@ a:link {
   .band-bio__band-name {
     font-size: 24px;
     line-height: 22px;
+    font-family: "Avenir Next Demi";
     padding-bottom: 36px;
     margin-left: 25px;
   }
@@ -384,6 +394,7 @@ a:link {
   .band-bio-text-box__card {
     font-size: 14px;
     line-height: 22px;
+    font-family: "Avenir Next Regular";
     padding-bottom: 36px;
     margin: 0px 28px;
     width: 40%;
@@ -415,6 +426,7 @@ a:link {
   .photo-gallery__header {
     font-size: 36px;
     line-height: 44px;
+    font-family: "Avenir Next Demi";
     padding-bottom: 16px;
     position: relative;
     left: 2%;
