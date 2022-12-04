@@ -13,11 +13,6 @@
   font-weight: 700;
   src: url("../assets/fonts/AvenirNextLTPro-Bold.otf") format("opentype"), url("../assets/fonts/AvenirNextLTProBold.ttf") format("truetype");
 }
-/*@mixin flexbox-properties($jc, $fd, $ais) {
-    justify-content: $jc;
-    flex-direction: $fd;
-    align-items: $ai;
-}*/
 body {
   font-family: "Avenir Next Regular";
 }
@@ -52,9 +47,9 @@ a:link {
 }
 .header__nav {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  flex-direction: column;
 }
 @media screen and (min-width: 768px) {
   .header {
@@ -63,6 +58,7 @@ a:link {
   }
   .header__nav {
     flex-direction: row;
+    justify-content: space-between;
     align-items: center;
   }
 }
@@ -123,6 +119,8 @@ a:link {
   background-color: #323232;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   color: #FFFFFF;
   padding: 24px 16px 16px 16px;
 }
@@ -132,6 +130,8 @@ a:link {
 .page-footer__box--contacts {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 .page-footer__header {
   font-size: 24px;
@@ -172,6 +172,7 @@ a:link {
   .page-footer__box--contacts {
     flex-direction: row;
     justify-content: space-between;
+    align-items: baseline;
   }
   .page-footer__header {
     font-size: 36px;
@@ -231,6 +232,7 @@ a:link {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: stretch;
   height: 50vh;
   min-width: 100%;
   max-width: 100%;
@@ -353,6 +355,7 @@ a:link {
   padding: 0px 16px;
   flex-direction: column;
   justify-content: flex-start;
+  align-items: stretch;
 }
 .band-bio__band-name {
   font-size: 14px;
@@ -383,8 +386,9 @@ a:link {
 
 .band-bio-text-box {
   display: flex;
-  justify-content: flex-start;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 .band-bio-text-box__card {
   font-size: 13px;
@@ -455,9 +459,9 @@ a:link {
 @media screen and (min-width: 768px) {
   .photo-section {
     flex-direction: row;
-    flex-wrap: wrap;
     justify-content: space-evenly;
-    align-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
     padding-bottom: 24px;
   }
   .photo-section__image {

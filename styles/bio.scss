@@ -5,16 +5,11 @@
     background-image: url('../assets/images/hero-bio.jpg');
     background-size: cover;
     background-position: center;
-
     display: flex;
-    //***
-    flex-direction: column;
-    justify-content: center;
-
+    @include flexbox-properties(column, center);
     height: 50vh;
     min-width: 100%;
     max-width: 100%;
-
     padding: 0px 16px;
 
     &::before {
@@ -32,11 +27,7 @@
 
     &__title {
         position: relative;
-        // font-family: "Avenir Next Bold";
         @include type-kit(24px, 32px, "Avenir Next Demi");
-        // font-family: "Avenir Next Demi";
-        // font-size: 24px;
-        // line-height: 32px;
         color: $white;
     }
 
@@ -50,8 +41,6 @@
 
         &__title {
             @include type-kit(60px, 68px, "Avenir Next Demi");
-            // font-size: 60px;
-            // line-height: 68px;
         }
     }
 
@@ -73,11 +62,7 @@
     padding: 24px 16px 0px 16px;
 
     &__header {
-        //***
         @include type-kit(24px, 32px, "Avenir Next Demi");
-        // font-size: 24px;
-        // line-height: 32px;
-        // font-family: "Avenir Next Demi";
         padding-bottom: 16px;
     }
 
@@ -96,9 +81,6 @@
 
     &__quote {
         @include type-kit(14px, 22px, "Avenir Next Demi");
-        // font-size: 14px;
-        // line-height: 22px;
-        // font-family: "Avenir Next Demi";
         padding-bottom: 16px;
     }
 
@@ -110,10 +92,7 @@
         padding: 0px 36px 36px 36px;
 
         &__header {
-            //***
             @include type-kit(36px, 44px, "Avenir Next Demi");
-            // font-size: 36px;
-            // line-height: 44px;
             padding-top: 48px;
             padding-bottom: 36px;
         }
@@ -128,14 +107,10 @@
 
         &__quote {
             @include type-kit(24px, 32px, "Avenir Next Demi");
-            // font-size: 24px;
-            // line-height: 32px;
         }
 
         &__quoter {
             @include type-kit(14px, 22px, "Avenir Next Demi");
-            // font-size: 14px;
-            // line-height: 22px;
         }
     }
     
@@ -155,15 +130,10 @@
 .band-bio {
     display: flex;
     padding: 0px 16px;
-    //***
-    flex-direction: column;
-    justify-content: flex-start;
+    @include flexbox-properties(column, flex-start);
 
     &__band-name {
         @include type-kit(14px, 22px, "Avenir Next Demi");
-        // font-size: 14px;
-        // line-height: 22px;
-        // font-family: "Avenir Next Demi";
         padding-bottom: 16px;
     }
 
@@ -172,8 +142,6 @@
 
         &__band-name {
             @include type-kit(24px, 22px, "Avenir Next Demi");
-            // font-size: 24px;
-            // line-height: 22px;
             padding-bottom: 36px;
             margin-left: 25px;
         }
@@ -190,15 +158,10 @@
 
 .band-bio-text-box {
     display: flex;
-    //***
-    justify-content: flex-start;
-    flex-direction: column;
+    @include flexbox-properties(column, flex-start);
 
     &__card {
         @include type-kit(13px, 18px, "Avenir Next Regular");
-        // font-size: 13px;
-        // line-height: 18px;
-        // font-family: "Avenir Next Regular";
         padding-bottom: 16px;
     }
 
@@ -207,8 +170,6 @@
 
         &__card {
             @include type-kit(14px, 22px);
-            // font-size: 14px;
-            // line-height: 22px;
             padding-bottom: 36px;
             margin: 0px 28px;
             width: 40%;
@@ -226,15 +187,11 @@
 .photo-gallery {
     background-color: $mercury;
     padding: 0px 16px;
-
     display: flex;
     flex-direction: column;
 
     &__header {
         @include type-kit(24px, 32px, "Avenir Next Demi");
-        // font-size: 24px;
-        // line-height: 32px;
-        // font-family: "Avenir Next Demi";
         padding-top: 24px;
     }
 
@@ -243,8 +200,6 @@
         
         &__header {
             @include type-kit(36px, 44px, "Avenir Next Demi");
-            // font-size: 36px;
-            // line-height: 44px;
             padding-bottom: 16px;
             position: relative;
             left: 2%;
@@ -259,7 +214,6 @@
 .photo-section {
     display: flex;
     flex-direction: column;
-
     padding-bottom: 16px;
 
     &__image {
@@ -267,11 +221,8 @@
     }
 
     @include tablet {
-        //***
-        flex-direction: row;
+        @include flexbox-properties(row, space-evenly, center);
         flex-wrap: wrap;
-        justify-content: space-evenly;
-        align-content: space-evenly;
         padding-bottom: 24px;
 
         &__image {

@@ -48,11 +48,11 @@ $alabaster: #FAFAFA;
     font-family: $ff;
 }
 
-/*@mixin flexbox-properties($jc, $fd, $ais) {
-    justify-content: $jc;
+@mixin flexbox-properties($fd, $jc: flex-start, $ai: stretch) {
     flex-direction: $fd;
+    justify-content: $jc;
     align-items: $ai;
-}*/
+}
 
 
 body {
@@ -89,10 +89,7 @@ a {
 
     &__nav {
         display: flex;
-        //***
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: column;
+        @include flexbox-properties(column, space-between, center);
     }
 
     @include tablet {
@@ -100,8 +97,7 @@ a {
         padding: 24px 36px 0px 36px;
 
         &__nav {
-            flex-direction: row;
-            align-items: center;
+            @include flexbox-properties(row, space-between, center);
         }
     }
 
@@ -160,7 +156,7 @@ a {
 .page-footer {
     background-color: $bandsite-black;
     display: flex;
-    flex-direction: column;
+    @include flexbox-properties(column);
     color: $white;
     padding: 24px 16px 16px 16px;
 
@@ -169,16 +165,12 @@ a {
         
         &--contacts {
             display: flex;
-            flex-direction: column;
+            @include flexbox-properties(column);
         }
     }
 
     &__header {
         @include type-kit(24px, 32px, "Avenir Next Demi");
-        // font-size: 24px;
-        // line-height: 32px;
-        // font-family: "Avenir Next Demi";
-
         padding-bottom: 16px;
     }
 
@@ -186,13 +178,6 @@ a {
         display: flex;
         justify-content: space-between;
         width: 40%;
-    }
-
-    &__logos-image {
-        // min-width: 10px;
-        // max-width: 20px;
-        // min-height: 10px;
-        // max-height: 20px;
     }
 
     &__text-collection {
@@ -205,9 +190,6 @@ a {
 
     &__text {
         @include type-kit(13px, 18px);
-        // font-size: 13px;
-        // line-height: 18px;
-
         color: $mercury;
 
         &--worker {
@@ -217,9 +199,6 @@ a {
     }
 
     &__website-logo {
-        //similarities to 'header__root'
-        // height: 20px;
-        // width: 120px;
         @extend .header-logo;
     }
 
@@ -232,16 +211,12 @@ a {
             padding-bottom: 36px;
 
             &--contacts {
-                flex-direction: row;
-                justify-content: space-between;
+                @include flexbox-properties(row, space-between, baseline);
             }
         }
 
         &__header {
-            //***
             @include type-kit(36px, 44px, "Avenir Next Demi");
-            // font-size: 36px;
-            // line-height: 44px;
         }
 
         &__logos {
@@ -258,10 +233,7 @@ a {
         }
     
         &__text {
-            //Don't use, won't have 
             @include type-kit(14px, 20px);
-            // font-size: 14px;
-            // line-height: 20px;
 
             &--worker {
                 font-family: "Avenir Next Demi";
