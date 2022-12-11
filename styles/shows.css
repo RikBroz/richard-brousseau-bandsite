@@ -229,6 +229,11 @@ iframe {
 
 }
 */
+hr {
+  border: 0;
+  border-bottom: 1px solid #E1E1E1;
+}
+
 .hero {
   position: relative;
   background-image: url("../assets/images/hero-shows.jpg");
@@ -291,6 +296,7 @@ iframe {
     line-height: 32px;
     font-family: "Avenir Next Demi";
     padding-bottom: 16px;
+    padding-top: 16px;
   }
   .hero__title {
     font-size: 60px;
@@ -315,23 +321,68 @@ iframe {
   .hero__subheader {
     margin-left: 24px;
     top: 45vh;
+    padding-top: 0px;
   }
   .hero__title {
     margin-left: 24px;
     top: 50vh;
-    width: 90%;
+    width: 70%;
   }
   .hero__soundCloud {
-    top: 50vh;
+    top: 52vh;
+    height: 30%;
+    width: 60%;
   }
 }
 
 .shows {
-  padding: 24px 16px 0px 16px;
+  padding-top: 24px;
 }
 .shows__header {
   font-size: 24px;
   line-height: 32px;
   font-family: "Avenir Next Demi";
+  padding: 0px 16px 16px 16px;
+}
+.shows__show {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  /*
+  &--normal {}
+  */
+}
+.shows__content {
+  padding: 0px 16px;
+}
+.shows__label {
+  font-size: 10px;
+  line-height: 20px;
+  font-family: "Avenir Next Bold";
+  color: #AFAFAF;
+  text-transform: uppercase;
+  padding-bottom: 8px;
+}
+.shows__data {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: "Avenir Next Regular";
   padding-bottom: 16px;
+}
+.shows__data--date {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: "Avenir Next Demi";
+  padding-bottom: 16px;
+}
+@media screen and (min-width: 768px) {
+  .shows {
+    padding: 48px 36px 0px 36px;
+  }
+  .shows__header {
+    font-size: 36px;
+    line-height: 44px;
+    font-family: "Avenir Next Demi";
+    padding-bottom: 36px;
+  }
 }/*# sourceMappingURL=shows.css.map */
