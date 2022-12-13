@@ -1,11 +1,5 @@
 @use './partials/global'as *;
 
-/*//Similar to 'hero__soundCloud'?
-iframe {
-
-}
-*/
-
 hr {
     border: 0;
     border-bottom: 1px solid $mercury;
@@ -75,8 +69,6 @@ hr {
             @include type-kit(24px, 32px, "Avenir Next Demi");
             //***
             padding-bottom: 16px;
-            //padding-top: 36px;
-            //padding-bottom: 48px;
             padding-top: 16px;
         }
 
@@ -86,7 +78,6 @@ hr {
             padding-bottom: 36px;
         }
 
- 
         &__soundCloud {
             height: 40%;
             width: 60%;
@@ -107,26 +98,16 @@ hr {
         &__subheader {
             margin-left: 24px;
             top: 45vh;
-
-            //padding-bottom: 16px;
-            //padding-top: 36px;
             padding-top: 0px;
         }
-        
 
         &__title {
-            //margin-left: 40px;
-            //width: 50%;
-            
             margin-left: 24px;
             top: 50vh;
-            //width: 90%;
             width: 70%;
         }
-
          
         &__soundCloud {
-            //top: 50vh;
             top: 52vh;
             height: 30%;
             width: 60%;
@@ -135,33 +116,30 @@ hr {
 }
 
 .shows {
-    // padding: 24px 16px 0px 16px;
     padding-top: 24px;
 
     &__header {
         @include type-kit(24px, 32px, "Avenir Next Demi");
-        //padding-bottom: 16px;
         padding: 0px 16px 16px 16px;
     }
 
+    &__dvl {
+        display: none;
+    }
+
     &__show {
-        // stroke-width: 1px;
-        // fill: blue;
-
-        // border-bottom: 1px solid $mercury;
-        display: flex;
-        flex-direction: column;
         margin-bottom: 16px;
-
-        //padding: 0px 16px;
-
-        /*
-        &--normal {}
-        */
     }
 
     &__content {
-        padding: 0px 16px;
+        display: flex;
+        flex-direction: column;
+        padding: 0px 16px 16px 16px;
+        cursor: pointer;
+        &:hover {
+            background-color: $mercury;
+            // background-color: $alabaster;
+        }
     }
 
     &__label {
@@ -169,6 +147,10 @@ hr {
         color: $silver;
         text-transform: uppercase;
         padding-bottom: 8px;
+
+        &--hidden { 
+            @extend .shows__label;
+        }
     }
 
     &__data {
@@ -177,7 +159,24 @@ hr {
         
         &--date {
             @include type-kit(13px, 18px, "Avenir Next Demi");
-            padding-bottom: 16px;
+        }
+
+
+    }
+
+    //Possibly make global for both "bio" and "shows" pages
+    &__button {
+        background-color: $bandsite-black;
+        color: $white;
+        height: 40px;
+        width: 100%;
+        border-radius: 4px;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $bandsite-darkBlack;
         }
     }
 
@@ -187,6 +186,46 @@ hr {
         &__header {
             @include type-kit(36px, 44px, "Avenir Next Demi");
             padding-bottom: 36px;
+        }
+
+        &__dvl {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0px 16px 16px 16px;
+            width: 63.5%;
+        }
+
+        &__content {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        &__label {
+            @include type-kit(12px, 20px, "Avenir Next Bold");
+
+            &--hidden {
+                @extend .shows__label;
+                display: none;
+            }
+        }
+        &__data {
+            @include type-kit(14px, 22px, "Avenir Next Regular");
+            width: 20%;
+
+            &--date {
+                @include type-kit(14px, 22px, "Avenir Next Demi");
+            }
+
+            &--venue {
+                margin-right: 10px;
+            }
+        }
+
+        &__button {
+            width: 150px;
+            padding: 0px 30px;
         }
     }
 }

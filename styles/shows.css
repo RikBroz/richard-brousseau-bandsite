@@ -224,11 +224,6 @@ a:link {
   }
 }
 
-/*//Similar to 'hero__soundCloud'?
-iframe {
-
-}
-*/
 hr {
   border: 0;
   border-bottom: 1px solid #E1E1E1;
@@ -344,18 +339,22 @@ hr {
   font-family: "Avenir Next Demi";
   padding: 0px 16px 16px 16px;
 }
+.shows__dvl {
+  display: none;
+}
 .shows__show {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 16px;
-  /*
-  &--normal {}
-  */
 }
 .shows__content {
-  padding: 0px 16px;
+  display: flex;
+  flex-direction: column;
+  padding: 0px 16px 16px 16px;
+  cursor: pointer;
 }
-.shows__label {
+.shows__content:hover {
+  background-color: #E1E1E1;
+}
+.shows__label, .shows__label--hidden {
   font-size: 10px;
   line-height: 20px;
   font-family: "Avenir Next Bold";
@@ -373,7 +372,19 @@ hr {
   font-size: 13px;
   line-height: 18px;
   font-family: "Avenir Next Demi";
-  padding-bottom: 16px;
+}
+.shows__button {
+  background-color: #323232;
+  color: #FFFFFF;
+  height: 40px;
+  width: 100%;
+  border-radius: 4px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+}
+.shows__button:hover {
+  background-color: #000000;
 }
 @media screen and (min-width: 768px) {
   .shows {
@@ -384,5 +395,43 @@ hr {
     line-height: 44px;
     font-family: "Avenir Next Demi";
     padding-bottom: 36px;
+  }
+  .shows__dvl {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 16px 16px 16px;
+    width: 63.5%;
+  }
+  .shows__content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .shows__label, .shows__label--hidden {
+    font-size: 12px;
+    line-height: 20px;
+    font-family: "Avenir Next Bold";
+  }
+  .shows__label--hidden {
+    display: none;
+  }
+  .shows__data {
+    font-size: 14px;
+    line-height: 22px;
+    font-family: "Avenir Next Regular";
+    width: 20%;
+  }
+  .shows__data--date {
+    font-size: 14px;
+    line-height: 22px;
+    font-family: "Avenir Next Demi";
+  }
+  .shows__data--venue {
+    margin-right: 10px;
+  }
+  .shows__button {
+    width: 150px;
+    padding: 0px 30px;
   }
 }/*# sourceMappingURL=shows.css.map */
