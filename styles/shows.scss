@@ -144,6 +144,11 @@ hr {
             background-color: $mercury;
             // background-color: $alabaster;
         }
+
+        &--active {
+            // For testing purposes
+            background-color: red;
+        }
     }
 
     &__label {
@@ -151,10 +156,6 @@ hr {
         color: $silver;
         text-transform: uppercase;
         padding-bottom: 8px;
-
-        // &--hidden { 
-        //     @extend .shows__label;
-        // }
     }
 
     &__data {
@@ -210,7 +211,6 @@ hr {
             @include type-kit(12px, 20px, "Avenir Next Bold");
 
             &--hidden {
-                //@extend .shows__label;
                 display: none;
             }
         }
@@ -245,13 +245,25 @@ hr {
 
         &__dvl {
             padding: 24px 16px 16px 16px;
-            width: 120%;
+            // width: 120%;
             //width: 115%;
+            width: 125%;
         }
 
         &__label {
             //width: 20%;
-            width: 30%;
+            // width: 30%;
+            
+            width: 25%;
+            margin-right: 10px;
+
+            &--venueAlign {
+                margin-left: 35px;
+            }
+
+            &--locationAlign {
+                margin-right: 40px;
+            }
         }
 
         &__data {

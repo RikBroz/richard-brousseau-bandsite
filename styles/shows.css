@@ -359,6 +359,9 @@ hr {
 .shows__content:hover {
   background-color: #E1E1E1;
 }
+.shows__content--active {
+  background-color: red;
+}
 .shows__label {
   font-size: 10px;
   line-height: 20px;
@@ -452,10 +455,17 @@ hr {
   }
   .shows__dvl {
     padding: 24px 16px 16px 16px;
-    width: 120%;
+    width: 125%;
   }
   .shows__label {
-    width: 30%;
+    width: 25%;
+    margin-right: 10px;
+  }
+  .shows__label--venueAlign {
+    margin-left: 35px;
+  }
+  .shows__label--locationAlign {
+    margin-right: 40px;
   }
   .shows__data--date {
     margin-right: 50px;

@@ -7,41 +7,38 @@ let showListings = [
     { date: "Mon Dec 15 2021", venue: "Press Club", location: "San Francisco, CA" },
 ];
 
+//function createShowCard(show, iteration) {
 function createShowCard(show) {
     const divEl = document.createElement("div");
     divEl.classList.add("shows__show");
+    //divEl1.id.add((iteration + 1));
 
     const divEl2 = document.createElement("div");
     divEl2.classList.add("shows__content");
+    //divEl2.id.add((iteration + 1));
 
     let dateLabelEl = document.createElement("p");
     dateLabelEl.innerText = "Date";
-    //dateLabelEl.classList.add("shows__label");
     dateLabelEl.classList.add("shows__label", "shows__label--hidden");
     console.log(dateLabelEl.innerText);
 
     let dateContentEl = document.createElement("p");
     dateContentEl.innerText = show.date;
-    // dateContentEl.classList.add("shows__data");
-    // dateContentEl.classList.add("shows__data--date");
     dateContentEl.classList.add("shows__data", "shows__data--date");
     console.log(dateContentEl.innerText);
 
     let venueLabelEl = document.createElement("p");
     venueLabelEl.innerText = "Venue";
-    //venueLabelEl.classList.add("shows__label");
     venueLabelEl.classList.add("shows__label", "shows__label--hidden");
     console.log(venueLabelEl.innerText);
     
     let venueContentEl = document.createElement("p");
     venueContentEl.innerText = show.venue;
-    //venueContentEl.classList.add("shows__data");
     venueContentEl.classList.add("shows__data", "shows__data--venue");
     console.log(venueContentEl.innerText);
 
     let locationLabelEl = document.createElement("p");
     locationLabelEl.innerText = "Location";
-    // locationLabelEl.classList.add("shows__label");
     locationLabelEl.classList.add("shows__label", "shows__label--hidden");
     console.log(locationLabelEl.innerText);
 
@@ -82,7 +79,6 @@ function renderShows() {
 
     showsEl.innerHTML = "";
 
-    //***
     let hiddenDivEl = document.createElement("div");
     hiddenDivEl.classList.add("shows__dvl");
     let hiddenDateLabelEl = document.createElement("p");
@@ -90,10 +86,10 @@ function renderShows() {
     hiddenDateLabelEl.classList.add("shows__label");
     let hiddenVenueLabelEl = document.createElement("p");
     hiddenVenueLabelEl.innerText = "Venue";
-    hiddenVenueLabelEl.classList.add("shows__label");
+    hiddenVenueLabelEl.classList.add("shows__label", "shows__label--venueAlign");
     let hiddenLocationLabelEl = document.createElement("p");
     hiddenLocationLabelEl.innerText = "Location";
-    hiddenLocationLabelEl.classList.add("shows__label");
+    hiddenLocationLabelEl.classList.add("shows__label", "shows__label--locationAlign");
 
     hiddenDivEl.appendChild(hiddenDateLabelEl);
     hiddenDivEl.appendChild(hiddenVenueLabelEl);
@@ -101,10 +97,10 @@ function renderShows() {
     
     showsEl.appendChild(hiddenDivEl);
 
-
     for (let i = 0; i < showListings.length; i++) {
-    
         const card = createShowCard(showListings[i]);
+        //const card = createShowCard(showListings[i], i);
+        //console.log();
         showsEl.appendChild(card);
     }
 }
