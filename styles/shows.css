@@ -228,6 +228,11 @@ hr {
   border: 0;
   border-bottom: 1px solid #E1E1E1;
 }
+@media screen and (min-width: 1280px) {
+  hr {
+    width: 150%;
+  }
+}
 
 .hero {
   position: relative;
@@ -354,7 +359,7 @@ hr {
 .shows__content:hover {
   background-color: #E1E1E1;
 }
-.shows__label, .shows__label--hidden {
+.shows__label {
   font-size: 10px;
   line-height: 20px;
   font-family: "Avenir Next Bold";
@@ -408,7 +413,7 @@ hr {
     justify-content: space-between;
     align-items: baseline;
   }
-  .shows__label, .shows__label--hidden {
+  .shows__label {
     font-size: 12px;
     line-height: 20px;
     font-family: "Avenir Next Bold";
@@ -433,5 +438,32 @@ hr {
   .shows__button {
     width: 150px;
     padding: 0px 30px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .shows {
+    display: flex;
+    padding: 48px 56px 0px 56px;
+    justify-content: space-evenly;
+    width: 80%;
+  }
+  .shows__header {
+    margin-right: 100px;
+  }
+  .shows__dvl {
+    padding: 24px 16px 16px 16px;
+    width: 120%;
+  }
+  .shows__label {
+    width: 30%;
+  }
+  .shows__data--date {
+    margin-right: 50px;
+  }
+  .shows__show {
+    margin-bottom: 32px;
+  }
+  .shows__content {
+    width: 150%;
   }
 }/*# sourceMappingURL=shows.css.map */

@@ -3,6 +3,10 @@
 hr {
     border: 0;
     border-bottom: 1px solid $mercury;
+
+    @include desktop {
+        width: 150%;
+    }
 }
 
 //****
@@ -148,9 +152,9 @@ hr {
         text-transform: uppercase;
         padding-bottom: 8px;
 
-        &--hidden { 
-            @extend .shows__label;
-        }
+        // &--hidden { 
+        //     @extend .shows__label;
+        // }
     }
 
     &__data {
@@ -206,7 +210,7 @@ hr {
             @include type-kit(12px, 20px, "Avenir Next Bold");
 
             &--hidden {
-                @extend .shows__label;
+                //@extend .shows__label;
                 display: none;
             }
         }
@@ -226,6 +230,42 @@ hr {
         &__button {
             width: 150px;
             padding: 0px 30px;
+        }
+    }
+
+    @include desktop {
+        display: flex;
+        padding: 48px 56px 0px 56px;
+        justify-content: space-evenly;
+        width: 80%;
+
+        &__header {
+            margin-right: 100px;
+        }
+
+        &__dvl {
+            padding: 24px 16px 16px 16px;
+            width: 120%;
+            //width: 115%;
+        }
+
+        &__label {
+            //width: 20%;
+            width: 30%;
+        }
+
+        &__data {
+            &--date {
+                margin-right: 50px;
+            }
+        }
+
+        &__show {
+            margin-bottom: 32px;
+        }
+
+        &__content {
+            width: 150%;
         }
     }
 }

@@ -17,7 +17,7 @@ function createShowCard(show) {
     let dateLabelEl = document.createElement("p");
     dateLabelEl.innerText = "Date";
     //dateLabelEl.classList.add("shows__label");
-    dateLabelEl.classList.add("shows__label--hidden");
+    dateLabelEl.classList.add("shows__label", "shows__label--hidden");
     console.log(dateLabelEl.innerText);
 
     let dateContentEl = document.createElement("p");
@@ -30,7 +30,7 @@ function createShowCard(show) {
     let venueLabelEl = document.createElement("p");
     venueLabelEl.innerText = "Venue";
     //venueLabelEl.classList.add("shows__label");
-    venueLabelEl.classList.add("shows__label--hidden");
+    venueLabelEl.classList.add("shows__label", "shows__label--hidden");
     console.log(venueLabelEl.innerText);
     
     let venueContentEl = document.createElement("p");
@@ -42,7 +42,7 @@ function createShowCard(show) {
     let locationLabelEl = document.createElement("p");
     locationLabelEl.innerText = "Location";
     // locationLabelEl.classList.add("shows__label");
-    locationLabelEl.classList.add("shows__label--hidden");
+    locationLabelEl.classList.add("shows__label", "shows__label--hidden");
     console.log(locationLabelEl.innerText);
 
     let locationContentEl = document.createElement("p");
