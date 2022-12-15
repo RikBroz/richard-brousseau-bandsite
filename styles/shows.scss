@@ -9,6 +9,15 @@ hr {
     }
 }
 
+.active {
+    // For testing purposes
+    //background-color: red;
+    background-color: $mercury;
+    // &:hover {
+    //     background-color: red;
+    // }
+}
+
 //****
 .hero {
     position: relative;
@@ -141,14 +150,14 @@ hr {
         padding: 0px 16px 16px 16px;
         cursor: pointer;
         &:hover {
-            background-color: $mercury;
-            // background-color: $alabaster;
+            //background-color: $mercury;
+            background-color: $alabaster;
         }
 
-        &--active {
-            // For testing purposes
-            background-color: red;
-        }
+        // &--active {
+        //     // For testing purposes
+        //     background-color: red;
+        // }
     }
 
     &__label {

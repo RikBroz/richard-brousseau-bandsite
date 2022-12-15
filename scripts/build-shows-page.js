@@ -103,6 +103,37 @@ function renderShows() {
         //console.log();
         showsEl.appendChild(card);
     }
+
+    // let header = document.getElementsByClassName("shows__show");
+    // let sC = header.getElementsByClassName("shows__content");
+    // for (let i = 0; i < sC.length; i++) {
+    //     sC[i].addEventListener("click", function() {
+    //         console.log("Clicked on show");
+    //         //let current = document.getElementsByClassName("shows__content--active");
+    //         let current = document.getElementsByClassName("active");
+    //         if (current.length > 0) {
+    //             // current[0].className = current[0].className.replace("shows__content--active", "shows__content");
+    //             current[0].className = current[0].className.replace(" active", "");
+    //         }
+    //         this.className += " active";
+    //     });
+    // }
 }
 
 renderShows();
+
+// let header = document.getElementsByClassName("shows__show");
+// let sC = header.getElementsByClassName("shows__content");
+let sC = document.getElementsByClassName("shows__content");
+for (let i = 0; i < sC.length; i++) {
+    sC[i].addEventListener("click", function() {
+        console.log("Clicked on show");
+        //let current = document.getElementsByClassName("shows__content--active");
+        let current = document.getElementsByClassName("active");
+        if (current.length > 0) {
+            // current[0].className = current[0].className.replace("shows__content--active", "shows__content");
+            current[0].className = current[0].className.replace(" active", "");
+        }
+        this.className += " active";
+    });
+}

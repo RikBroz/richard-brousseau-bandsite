@@ -234,6 +234,10 @@ hr {
   }
 }
 
+.active {
+  background-color: #E1E1E1;
+}
+
 .hero {
   position: relative;
   background-image: url("../assets/images/hero-shows.jpg");
@@ -357,10 +361,7 @@ hr {
   cursor: pointer;
 }
 .shows__content:hover {
-  background-color: #E1E1E1;
-}
-.shows__content--active {
-  background-color: red;
+  background-color: #FAFAFA;
 }
 .shows__label {
   font-size: 10px;
