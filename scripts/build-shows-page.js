@@ -53,6 +53,7 @@ function createShowCard(show) {
     console.log(ticketButtonEl.innerText);
 
     let hrEl = document.createElement("hr");
+    hrEl.classList.add("shows__divider");
 
     divEl2.appendChild(dateLabelEl);
     divEl2.appendChild(dateContentEl);

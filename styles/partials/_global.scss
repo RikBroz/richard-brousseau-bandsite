@@ -54,6 +54,16 @@ $alabaster: #FAFAFA;
     align-items: $ai;
 }
 
+@mixin img-card-layout($br, $w, $h, $bc) {
+    // border-radius: 50%;
+    // width: 36px;
+    // height: 36px;
+    // background-color: $mercury;
+    border-radius: $br;
+    width: $w;
+    height: $h;
+    background-color: $bc;
+}
 
 body {
     font-family: "Avenir Next Regular";
@@ -80,6 +90,14 @@ a {
     }
 }
 
+hr {
+    border: 0;
+    border-bottom: 1px solid $mercury;
+
+    // @include desktop {
+    //     width: 150%;
+    // }
+}
 
 .header {
     display: flex;

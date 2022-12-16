@@ -1,13 +1,13 @@
 @use './partials/global'as *;
 
-hr {
-    border: 0;
-    border-bottom: 1px solid $mercury;
+// hr {
+//     border: 0;
+//     border-bottom: 1px solid $mercury;
 
-    @include desktop {
-        width: 150%;
-    }
-}
+//     @include desktop {
+//         width: 150%;
+//     }
+// }
 
 .active {
     // For testing purposes
@@ -286,6 +286,10 @@ hr {
         }
 
         &__content {
+            width: 150%;
+        }
+
+        &__divider {
             width: 150%;
         }
     }

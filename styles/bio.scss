@@ -1,5 +1,22 @@
 @use './partials/global' as *;
 
+form {
+    width: 82%;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include tablet {
+        width: 90%;
+        // display: flex;
+        // flex-direction: column;
+    }
+
+    // @include desktop {
+    //     width: 50%;
+    // }
+}
+
 .hero {
     position: relative;
     background-image: url('../assets/images/hero-bio.jpg');
@@ -229,6 +246,191 @@
             width: 30%;
             margin: 1vw 0;
             padding: 0;
+        }
+    }
+}
+
+.comments {
+    background-color: $white;
+    padding: 0px 16px 16px 16px;
+
+    &__header {
+        @extend .photo-gallery__header;
+        padding-bottom: 16px;
+    }
+
+    &__form {
+        display: flex;
+        //flex-direction: column;
+        justify-content: space-between;
+    }
+
+    &__imgCard {
+        background-image: url('../assets/images/Mohan-muruge.jpg');
+        @include img-card-layout(50%, 36px, 36px, $mercury);
+        // border-radius: 50%;
+        // width: 36px;
+        // height: 36px;
+        // background-color: $mercury;
+        background-size: cover;
+        position: relative;
+        //top: 1.5rem;
+        //For div
+        // top: 20px;
+        top: 24px;
+    }
+
+    &__formField {
+        border: 0;
+        //padding-bottom: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    &__fieldInputSection {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    &__fieldName {
+        @include type-kit(10px, 20px, "Avenir Next Bold");
+        color: $silver;
+        text-transform: uppercase;
+        //padding-bottom: 4px;
+    }
+
+    &__nameInput {
+        height: 36px;
+        width: 100%;
+        border-radius: 4px;
+        border: 1px solid $mercury;
+        background-color: $mercury;
+        padding: 12px;
+    }
+
+    &__commentInput {
+        @extend .comments__nameInput;
+        padding-bottom: 75px;
+    }
+
+    //Possibly make global for both "bio" and "shows" pages
+    &__button {
+        background-color: $bandsite-black;
+        color: $white;
+        height: 40px;
+        width: 100%;
+        border-radius: 4px;
+        text-transform: uppercase;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $bandsite-darkBlack;
+        }
+    }
+
+    // &__object {
+    //     margin-bottom: 16px;
+    // }
+
+    // &__content {
+
+    // }
+
+    @include tablet {
+        padding: 0px 36px 36px 36px;
+        
+        &__header {
+            @include type-kit(36px, 44px, "Avenir Next Demi");
+            padding-top: 48px;
+            padding-bottom: 36px;
+        }
+
+        &__form {
+            // width: 90%;
+            margin: auto;
+            width: 80%;
+            gap: 15px;
+        }
+
+        &__imgCard {
+            width: 48px;
+            height: 48px;
+        }
+
+        &__fieldName {
+            @include type-kit(12px, 20px, "Avenir Next Bold");
+        }
+
+        &__nameInput {
+            height: 48px;
+            padding: 16px;
+        }
+
+        &__commentInput {
+            @extend .comments__nameInput;
+            padding-bottom: 79px;
+        }
+
+        &__button {
+            width: 150px;
+            padding: 0px 32px;
+            align-self: end;
+        }
+    }
+
+    @include desktop {
+        //*** [photo-gallery]
+        padding: 0px 56px 56px 56px;
+
+        &__form {
+            width: 50%;
+            gap: 16px;
+        }
+        // &__imgCard {
+        //     top: 24px;
+        // }
+    }
+}
+
+.comment-object {
+    margin-bottom: 16px;
+
+    &__content {
+        display: flex;
+        margin: 16px 0px;
+        gap: 10px;
+        justify-content: space-between;
+    }
+
+    // include from comments__imgCard
+    &__avatar {
+        @include img-card-layout(50%, 36px, 36px, $mercury);
+    }
+
+    &__data-section {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    &__personalData-section {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__text {
+        @include type-kit(13px, 18px, "Avenir Next Regular");
+
+        &--commenter {
+            @include type-kit(14px, 22px, "Avenir Next Demi");
+        }
+
+        &--time {
+            color: $mercury;
         }
     }
 }

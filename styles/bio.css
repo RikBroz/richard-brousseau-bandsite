@@ -39,6 +39,11 @@ a:link {
   text-decoration: none;
 }
 
+hr {
+  border: 0;
+  border-bottom: 1px solid #E1E1E1;
+}
+
 .header {
   display: flex;
   background-color: #323232;
@@ -221,6 +226,18 @@ a:link {
   }
   .page-footer__website-logo {
     margin-right: 50px;
+  }
+}
+
+form {
+  width: 82%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media screen and (min-width: 768px) {
+  form {
+    width: 90%;
   }
 }
 
@@ -422,7 +439,7 @@ a:link {
   display: flex;
   flex-direction: column;
 }
-.photo-gallery__header {
+.photo-gallery__header, .comments__header {
   font-size: 24px;
   line-height: 32px;
   font-family: "Avenir Next Demi";
@@ -432,7 +449,7 @@ a:link {
   .photo-gallery {
     padding: 0px 36px;
   }
-  .photo-gallery__header {
+  .photo-gallery__header, .comments__header {
     font-size: 36px;
     line-height: 44px;
     font-family: "Avenir Next Demi";
@@ -469,4 +486,154 @@ a:link {
     margin: 1vw 0;
     padding: 0;
   }
+}
+
+.comments {
+  background-color: #FFFFFF;
+  padding: 0px 16px 16px 16px;
+}
+.comments__header {
+  padding-bottom: 16px;
+}
+.comments__form {
+  display: flex;
+  justify-content: space-between;
+}
+.comments__imgCard {
+  background-image: url("../assets/images/Mohan-muruge.jpg");
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  background-color: #E1E1E1;
+  background-size: cover;
+  position: relative;
+  top: 24px;
+}
+.comments__formField {
+  border: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.comments__fieldInputSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.comments__fieldName {
+  font-size: 10px;
+  line-height: 20px;
+  font-family: "Avenir Next Bold";
+  color: #AFAFAF;
+  text-transform: uppercase;
+}
+.comments__nameInput, .comments__commentInput {
+  height: 36px;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #E1E1E1;
+  background-color: #E1E1E1;
+  padding: 12px;
+}
+.comments__commentInput {
+  padding-bottom: 75px;
+}
+.comments__button {
+  background-color: #323232;
+  color: #FFFFFF;
+  height: 40px;
+  width: 100%;
+  border-radius: 4px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+}
+.comments__button:hover {
+  background-color: #000000;
+}
+@media screen and (min-width: 768px) {
+  .comments {
+    padding: 0px 36px 36px 36px;
+  }
+  .comments__header {
+    font-size: 36px;
+    line-height: 44px;
+    font-family: "Avenir Next Demi";
+    padding-top: 48px;
+    padding-bottom: 36px;
+  }
+  .comments__form {
+    margin: auto;
+    width: 80%;
+    gap: 15px;
+  }
+  .comments__imgCard {
+    width: 48px;
+    height: 48px;
+  }
+  .comments__fieldName {
+    font-size: 12px;
+    line-height: 20px;
+    font-family: "Avenir Next Bold";
+  }
+  .comments__nameInput, .comments__commentInput {
+    height: 48px;
+    padding: 16px;
+  }
+  .comments__commentInput {
+    padding-bottom: 79px;
+  }
+  .comments__button {
+    width: 150px;
+    padding: 0px 32px;
+    align-self: end;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .comments {
+    padding: 0px 56px 56px 56px;
+  }
+  .comments__form {
+    width: 50%;
+    gap: 16px;
+  }
+}
+
+.comment-object {
+  margin-bottom: 16px;
+}
+.comment-object__content {
+  display: flex;
+  margin: 16px 0px;
+  gap: 10px;
+  justify-content: space-between;
+}
+.comment-object__avatar {
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  background-color: #E1E1E1;
+}
+.comment-object__data-section {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.comment-object__personalData-section {
+  display: flex;
+  justify-content: space-between;
+}
+.comment-object__text {
+  font-size: 13px;
+  line-height: 18px;
+  font-family: "Avenir Next Regular";
+}
+.comment-object__text--commenter {
+  font-size: 14px;
+  line-height: 22px;
+  font-family: "Avenir Next Demi";
+}
+.comment-object__text--time {
+  color: #E1E1E1;
 }/*# sourceMappingURL=bio.css.map */
