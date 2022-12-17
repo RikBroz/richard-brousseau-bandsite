@@ -1,18 +1,3 @@
-// let commentListings = [
-//     { name: "Connor Walton", 
-//         timestamp: "02/17/2021", 
-//         comment: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains." 
-//     },
-//     { name: "Emilie Beach", 
-//         timestamp: "01/09/2021", 
-//         comment: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day." 
-//     },
-//     { name: "Miles Acosta", 
-//         timestamp: "12/20/2020", 
-//         comment: "I can t stop listening. Every time I hear one of their songs the vocals it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough." 
-//     },
-// ];
-
 let commentListings = [
     {   
         name: "Miles Acosta", 
@@ -34,9 +19,7 @@ let commentListings = [
 console.log(commentListings);
 
 function createCommentCard(commentInfo) {
-    //const cardEl = document.createElement('article');
     const cardEl = document.createElement("div");
-    //cardEl.classList.add("comments__object");
     cardEl.classList.add("comment-object");
 
     let hrElTop = document.createElement("hr");
@@ -71,16 +54,10 @@ function createCommentCard(commentInfo) {
     console.log(commenterText.innerText);
     commenterText.classList.add("comment-object__text");
 
-    // textContainer.appendChild(commenterName);
-    // textContainer.appendChild(dateOfComment);
     textContainer.appendChild(nameDateContainer);
     textContainer.appendChild(commenterText);
     cardEl2.appendChild(textContainer);
     cardEl.appendChild(cardEl2);
-
-    // let hrElBottom = document.createElement("hr");
-    // hrElBottom.classList.add("comment-object__divider");
-    // cardEl.appendChild(hrElBottom);
 
     return cardEl;
 }
@@ -92,11 +69,9 @@ function renderComments() {
 
     const commentsEl = document.createElement("div");
     commentsEl.classList.add("comments");
-    // conversationsEl.appendChild(commentsEl);
 
-    for (let i = 0; i < commentListings.length; i++) {
+    for (let i = commentListings.length - 1; i >= 0; i--) {
         const card = createCommentCard(commentListings[i]);
-        //conversationsEl.appendChild(card);
         commentsEl.appendChild(card);
     }
 
@@ -107,4 +82,70 @@ function renderComments() {
     conversationsEl.appendChild(commentsEl);
 }
 
+function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const nameInputStatus = document.querySelector("#name");
+    const commentInputStatus = document.querySelector("#comment");
+
+    console.log("Name: " + event.target.name.value);
+    console.log("Comment: " + event.target.comment.value);
+
+    let inputSpacesRGEX = /^[\s]+$/;
+    let nameRGEX = /^[A-Z][a-z]+\s[A-Z][a-z]+$/;
+    let commentRGEX = /^[^\s]+[\w\W\s]+$/;
+    
+    let nameSpacesResult = inputSpacesRGEX.test(event.target.name.value);
+    let nameResult = nameRGEX.test(event.target.name.value);
+    let commentSpacesResult = inputSpacesRGEX.test(event.target.comment.value);
+    let commentResult = commentRGEX.test(event.target.comment.value);
+    
+    console.log("Length of name: " + event.target.name.value.length);
+    console.log("Length of comment: " + event.target.comment.value.length);
+
+    if (event.target.name.value.length === 0 || nameSpacesResult == true) {
+        nameInputStatus.classList.add("comments__nameInput--errorState");
+        alert('Invalid data! Please enter valid data for the name.');
+        return;
+    } else if (nameResult == false) {
+        nameInputStatus.classList.add("comments__nameInput--errorState");
+        alert('Invalid name! Please enter a proper name e.g. Taylor Swift, Bruce Springsteen');
+        return;
+    }
+
+    if (event.target.comment.value.length === 0 || commentSpacesResult == true) {
+        commentInputStatus.classList.add("comments__nameInput--errorState");
+        alert('Invalid data! Please enter valid data for the comment.');
+        return;
+    } else if (commentResult == false) {
+        commentInputStatus.classList.add("comments__nameInput--errorState");
+        alert('Invalid comment! Please enter a proper comment preferably one without starting spaces');
+        return;
+    }
+
+    if (nameInputStatus.classList.contains("comments__nameInput--errorState") || commentInputStatus.classList.contains("comments__nameInput--errorState")) {
+        nameInputStatus.classList.remove("comments__nameInput--errorState");
+        commentInputStatus.classList.remove("comments__nameInput--errorState");
+    }
+
+    const date = new Date();
+    let currentDate = `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`;
+    console.log(currentDate);
+
+    const cardData = {
+        name: event.target.name.value,
+        timestamp: currentDate,
+        comment: event.target.comment.value,
+    };
+
+    formEl.reset();
+    commentListings.push(cardData);
+    console.log(commentListings);
+
+    renderComments();
+}
+
+const formEl = document.querySelector('#comment-form');
+console.log(formEl);
+formEl.addEventListener('submit', handleFormSubmit);
 renderComments();

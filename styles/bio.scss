@@ -306,8 +306,21 @@ form {
         width: 100%;
         border-radius: 4px;
         border: 1px solid $mercury;
-        background-color: $mercury;
+        background-color: $alabaster;
         padding: 12px;
+
+        &:active {
+            border: 1px solid $bandsite-black;
+            background-color: $white;
+        }
+
+        // &:invalid {
+        //     border: 1px solid #D22D2D;
+        // }
+
+        &--errorState {
+            border: 1px solid #D22D2D;
+        }
     }
 
     &__commentInput {
@@ -330,14 +343,6 @@ form {
             background-color: $bandsite-darkBlack;
         }
     }
-
-    // &__object {
-    //     margin-bottom: 16px;
-    // }
-
-    // &__content {
-
-    // }
 
     @include tablet {
         padding: 0px 36px 36px 36px;
@@ -405,7 +410,6 @@ form {
         justify-content: space-between;
     }
 
-    // include from comments__imgCard
     &__avatar {
         @include img-card-layout(50%, 36px, 36px, $mercury);
     }
@@ -433,4 +437,6 @@ form {
             color: $mercury;
         }
     }
+
+    
 }
