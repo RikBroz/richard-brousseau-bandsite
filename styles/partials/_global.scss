@@ -41,6 +41,30 @@ $alabaster: #FAFAFA;
     }
 }
 
+@mixin hero-image($pos, $bg-i, $bg-s, $bg-pos, $d, $h, $min-w, $max-w, $pad) {
+    position: $pos;
+    background-image: $bg-i;
+    background-size: $bg-s;
+    background-position: $bg-pos;
+    display: $d;
+    height: $h;
+    min-width: $min-w;
+    max-width: $max-w;
+    padding: $pad;
+}
+
+@mixin hero-image-before($c, $pos, $tp, $rght, $bttm, $lft, $bg-clr, $h, $min-w, $max-w) {
+    content: $c;
+    position: $pos;
+    top: $tp;
+    right: $rght;
+    bottom: $bttm;
+    left: $lft;
+    background-color: $bg-clr;
+    height: $h;
+    min-width: $min-w;
+    max-width: $max-w;
+}
 
 @mixin type-kit($fs, $lh, $ff: "Avenir Next Regular") {
     font-size: $fs;
@@ -59,6 +83,17 @@ $alabaster: #FAFAFA;
     width: $w;
     height: $h;
     background-color: $bc;
+}
+
+@mixin cta-btn($bg-clr, $clr, $h, $w, $brdr-rds, $txt-t, $brdr, $crsr) {
+    background-color: $bg-clr;
+    color: $clr;
+    height: $h;
+    width: $w;
+    border-radius: $brdr-rds;
+    text-transform: $txt-t;
+    border: $brdr;
+    cursor: $crsr;
 }
 
 body {
@@ -89,10 +124,6 @@ a {
 hr {
     border: 0;
     border-bottom: 1px solid $mercury;
-
-    // @include desktop {
-    //     width: 150%;
-    // }
 }
 
 .header {
@@ -151,9 +182,11 @@ hr {
         &--active {
             font-family: "Avenir Next Bold";
         }
+
         &--active, &:hover {
             color: $white;
         }
+        
         &:hover {
             font-family: "Avenir Next Demi";
         }

@@ -12,28 +12,11 @@ form {
 }
 
 .hero {
-    position: relative;
-    background-image: url('../assets/images/hero-bio.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
+    @include hero-image(relative, url('../assets/images/hero-bio.jpg'), cover, center, flex, 50vh, 100%, 100%, 0px 16px);
     @include flexbox-properties(column, center);
-    height: 50vh;
-    min-width: 100%;
-    max-width: 100%;
-    padding: 0px 16px;
 
     &::before {
-        content: "";
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        bottom: 0px;
-        left: 0px;
-        background-color: rgba(50, 50, 50, 0.5);
-        height: 50vh;
-        min-width: 100%;
-        max-width: 100%;
+        @include hero-image-before("", absolute, 0px, 0px, 0px, 0px, rgba(50, 50, 50, 0.5), 50vh, 100%, 100%);
     }
 
     &__title {
@@ -43,13 +26,10 @@ form {
     }
 
     @include tablet {
-        // height: 100vh;
-        //***Alternative
         height: 75vh;
         padding: 0px 36px;
 
         &::before {
-            // height: 100vh;
             height: 75vh;
         }
 
@@ -59,12 +39,9 @@ form {
     }
 
     @include desktop {
-        // height: 150vh;
-        //***Alterntaive
         height: 100vh;
 
         &::before {
-            // height: 150vh;
             height: 100vh;
         }
 
@@ -90,14 +67,15 @@ form {
     }
 
     &__img {
-        // width: 288px;
         padding-bottom: 16px;
         min-width: 100%;
         height: auto;
-        //***Alternative
-        width: 18rem; //18rem is also 288px
-        min-height: 177.58px; //OR 11.099rem
-        max-height: 428.36px //OR 26.773rem
+        // 18rem is also 288px
+        width: 18rem;
+        // Also 11.099rem
+        min-height: 177.58px;
+        // Also 26.773rem
+        max-height: 428.36px;
     }
 
     &__quote {
@@ -124,9 +102,6 @@ form {
 
         &__img {
             padding-bottom: 36px;
-            //***Alternative
-            // padding: 0px 36px 36px 0px;
-            // width: 38rem;
             width: 41rem;
             height: 30rem;
             min-width: 0%;
@@ -134,8 +109,6 @@ form {
 
         &__quote {
             @include type-kit(24px, 32px, "Avenir Next Demi");
-            //***Alternative
-            // width: 99%;
         }
 
         &__quoter {
@@ -150,10 +123,7 @@ form {
             padding: 0px 32px 0px 32px;
         }
 
-        //***Alternative
         &__img {
-            // width: 50rem;
-            // width: 55rem;
             width: 48rem;
             height: 30rem;
         }
@@ -334,16 +304,8 @@ form {
         padding-bottom: 75px;
     }
 
-    //Possibly make global for both "bio" and "shows" pages
     &__button {
-        background-color: $bandsite-black;
-        color: $white;
-        height: 40px;
-        width: 100%;
-        border-radius: 4px;
-        text-transform: uppercase;
-        border: none;
-        cursor: pointer;
+        @include cta-btn($bandsite-black, $white, 40px, 100%, 4px, uppercase, none, pointer);
 
         &:hover {
             background-color: $bandsite-darkBlack;
@@ -392,16 +354,12 @@ form {
     }
 
     @include desktop {
-        //*** [photo-gallery]
         padding: 0px 56px 36px 56px;
 
         &__form {
             width: 50%;
             gap: 16px;
         }
-        // &__imgCard {
-        //     top: 24px;
-        // }
     }
 }
 
@@ -420,7 +378,6 @@ form {
 }
 
 .comment-object {
-    //margin-bottom: 16px;
 
     &__content {
         display: flex;

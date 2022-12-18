@@ -74,7 +74,6 @@ function createShowCard(show) {
 function renderShows() {
     let showsEl = document.querySelector(".shows__section");
     console.log(showsEl);
-
     showsEl.innerHTML = "";
 
     let hiddenDivEl = document.createElement("div");

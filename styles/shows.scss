@@ -4,38 +4,20 @@
     background-color: $mercury;
 }
 
-//****
 .hero {
-    position: relative;
-    background-image: url('../assets/images/hero-shows.jpg');
-    background-size: cover;
-    background-position: center;
-    display: flex;
+    @include hero-image(relative, url('../assets/images/hero-shows.jpg'), cover, center, flex, 50vh, 100%, 100%, 0px 16px);
     @include flexbox-properties(column, center);
-    height: 50vh;
-    min-width: 100%;
-    max-width: 100%;
-    padding: 0px 16px;
 
     &::before {
-        content: "";
-        position: absolute;
-        top: 0px;
-        right: 0px;
-        bottom: 0px;
-        left: 0px;
-        background-color: rgba(50, 50, 50, 0.5);
-        height: 50vh;
-        min-width: 100%;
-        max-width: 100%;
+        @include hero-image-before("", absolute, 0px, 0px, 0px, 0px, rgba(50, 50, 50, 0.5), 50vh, 100%, 100%);
     }
-    //***
+
     &__subsection {
         display: flex;
         flex-direction: column;
         gap: 16px;
     }
-    //***
+    
     &__subheader {
         position: relative;
         @include type-kit(14px, 22px, "Avenir Next Demi");
@@ -50,13 +32,11 @@
         padding-bottom: 16px;
     }
 
-    //***
     &__soundCloud {
         position: relative;
         height: 40%;
     }
     
-
     @include tablet {
         height: 75vh;
         padding: 0px 36px;
@@ -69,17 +49,14 @@
             gap: 0px;
         }
 
-        //***
         &__subheader {
             @include type-kit(24px, 32px, "Avenir Next Demi");
-            //***
             padding-bottom: 16px;
             padding-top: 16px;
         }
 
         &__title {
             @include type-kit(60px, 68px, "Avenir Next Demi");
-            //***
             padding-bottom: 36px;
             width: 75%;
         }
@@ -99,7 +76,6 @@
             height: 100vh;
         }
 
-        //*** 
         &__subheader {
             margin-left: 24px;
             top: 25vh;
@@ -165,16 +141,8 @@
         }
     }
 
-    //Possibly make global for both "bio" and "shows" pages
     &__button {
-        background-color: $bandsite-black;
-        color: $white;
-        height: 40px;
-        width: 100%;
-        border-radius: 4px;
-        text-transform: uppercase;
-        border: none;
-        cursor: pointer;
+        @include cta-btn($bandsite-black, $white, 40px, 100%, 4px, uppercase, none, pointer);
 
         &:hover {
             background-color: $bandsite-darkBlack;

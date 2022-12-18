@@ -16,8 +16,6 @@ let commentListings = [
     },
 ];
 
-console.log(commentListings);
-
 function createCommentCard(commentInfo) {
     const cardEl = document.createElement("div");
     cardEl.classList.add("comment-object");
@@ -64,7 +62,6 @@ function createCommentCard(commentInfo) {
 
 function renderComments() {
     const conversationsEl = document.querySelector("#conversations");
-
     conversationsEl.innerHTML = "";
 
     const commentsEl = document.createElement("div");

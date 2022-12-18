@@ -239,13 +239,13 @@ hr {
   background-size: cover;
   background-position: center;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: stretch;
   height: 50vh;
   min-width: 100%;
   max-width: 100%;
   padding: 0px 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
 }
 .hero::before {
   content: "";
