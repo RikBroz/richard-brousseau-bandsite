@@ -262,6 +262,7 @@ hr {
 .hero__subsection {
   display: flex;
   flex-direction: column;
+  gap: 16px;
 }
 .hero__subheader {
   position: relative;
@@ -276,19 +277,23 @@ hr {
   line-height: 32px;
   font-family: "Avenir Next Demi";
   color: #FFFFFF;
-  width: 80%;
+  width: 65%;
+  padding-bottom: 16px;
 }
 .hero__soundCloud {
   position: relative;
-  height: 50%;
+  height: 40%;
 }
 @media screen and (min-width: 768px) {
   .hero {
-    height: 100vh;
+    height: 75vh;
     padding: 0px 36px;
   }
   .hero::before {
-    height: 100vh;
+    height: 75vh;
+  }
+  .hero__subsection {
+    gap: 0px;
   }
   .hero__subheader {
     font-size: 24px;
@@ -302,6 +307,7 @@ hr {
     line-height: 68px;
     font-family: "Avenir Next Demi";
     padding-bottom: 36px;
+    width: 75%;
   }
   .hero__soundCloud {
     height: 40%;
@@ -311,26 +317,27 @@ hr {
 }
 @media screen and (min-width: 1280px) {
   .hero {
-    height: 150vh;
+    height: 100vh;
     flex-direction: row;
   }
   .hero::before {
-    height: 150vh;
+    height: 100vh;
   }
   .hero__subheader {
     margin-left: 24px;
-    top: 45vh;
+    top: 25vh;
     padding-top: 0px;
   }
   .hero__title {
     margin-left: 24px;
-    top: 50vh;
-    width: 70%;
+    top: 30vh;
+    width: 68%;
+    padding-bottom: 0px;
   }
   .hero__soundCloud {
-    top: 55vh;
+    top: 32vh;
     height: 24%;
-    width: 50%;
+    width: 60%;
     padding-bottom: 0px;
   }
 }
@@ -393,7 +400,7 @@ hr {
 }
 @media screen and (min-width: 768px) {
   .shows {
-    padding: 48px 36px 0px 36px;
+    padding: 48px 36px 24px 36px;
   }
   .shows__header {
     font-size: 36px;
@@ -443,7 +450,7 @@ hr {
 @media screen and (min-width: 1280px) {
   .shows {
     display: flex;
-    padding: 48px 56px 0px 56px;
+    padding: 48px 56px 16px 56px;
     justify-content: space-evenly;
     width: 80%;
   }

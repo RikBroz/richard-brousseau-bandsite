@@ -43,13 +43,14 @@ form {
     }
 
     @include tablet {
-        height: 100vh;
+        // height: 100vh;
         //***Alternative
-        //height: 75vh;
+        height: 75vh;
         padding: 0px 36px;
 
         &::before {
-            height: 100vh;
+            // height: 100vh;
+            height: 75vh;
         }
 
         &__title {
@@ -58,12 +59,13 @@ form {
     }
 
     @include desktop {
-        height: 150vh;
+        // height: 150vh;
         //***Alterntaive
-        //height: 100vh;
+        height: 100vh;
 
         &::before {
-            height: 150vh;
+            // height: 150vh;
+            height: 100vh;
         }
 
         &__title {
@@ -88,10 +90,14 @@ form {
     }
 
     &__img {
-        width: 288px;
+        // width: 288px;
         padding-bottom: 16px;
         min-width: 100%;
         height: auto;
+        //***Alternative
+        width: 18rem; //18rem is also 288px
+        min-height: 177.58px; //OR 11.099rem
+        max-height: 428.36px //OR 26.773rem
     }
 
     &__quote {
@@ -118,10 +124,18 @@ form {
 
         &__img {
             padding-bottom: 36px;
+            //***Alternative
+            // padding: 0px 36px 36px 0px;
+            // width: 38rem;
+            width: 41rem;
+            height: 30rem;
+            min-width: 0%;
         }
 
         &__quote {
             @include type-kit(24px, 32px, "Avenir Next Demi");
+            //***Alternative
+            // width: 99%;
         }
 
         &__quoter {
@@ -134,6 +148,14 @@ form {
 
         &__content {
             padding: 0px 32px 0px 32px;
+        }
+
+        //***Alternative
+        &__img {
+            // width: 50rem;
+            // width: 55rem;
+            width: 48rem;
+            height: 30rem;
         }
 
         &__quote {

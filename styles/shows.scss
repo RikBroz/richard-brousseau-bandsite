@@ -1,21 +1,7 @@
 @use './partials/global'as *;
 
-// hr {
-//     border: 0;
-//     border-bottom: 1px solid $mercury;
-
-//     @include desktop {
-//         width: 150%;
-//     }
-// }
-
 .active {
-    // For testing purposes
-    //background-color: red;
     background-color: $mercury;
-    // &:hover {
-    //     background-color: red;
-    // }
 }
 
 //****
@@ -47,6 +33,7 @@
     &__subsection {
         display: flex;
         flex-direction: column;
+        gap: 16px;
     }
     //***
     &__subheader {
@@ -59,26 +46,27 @@
         position: relative;
         @include type-kit(24px, 32px, "Avenir Next Demi");
         color: $white;
-        width: 80%;
+        width: 65%;
+        padding-bottom: 16px;
     }
 
     //***
     &__soundCloud {
         position: relative;
-        height: 50%;
+        height: 40%;
     }
     
 
     @include tablet {
-        height: 100vh;
-        //***Alternative
-        //height: 75vh;
+        height: 75vh;
         padding: 0px 36px;
 
         &::before {
-            height: 100vh;
-            //***Alternative
-            //height: 75vh;
+            height: 75vh;
+        }
+
+        &__subsection {
+            gap: 0px;
         }
 
         //***
@@ -93,6 +81,7 @@
             @include type-kit(60px, 68px, "Avenir Next Demi");
             //***
             padding-bottom: 36px;
+            width: 75%;
         }
 
         &__soundCloud {
@@ -103,39 +92,31 @@
     }
 
     @include desktop {
-        height: 150vh;
-        //***
+        height: 100vh;
         flex-direction: row;
 
         &::before {
-            height: 150vh;
+            height: 100vh;
         }
 
         //*** 
         &__subheader {
             margin-left: 24px;
-            top: 45vh;
+            top: 25vh;
             padding-top: 0px;
         }
 
         &__title {
             margin-left: 24px;
-            top: 50vh;
-            width: 70%;
+            top: 30vh;
+            width: 68%;
+            padding-bottom: 0px;
         }
          
         &__soundCloud {
-            // top: 52vh;
-            top: 55vh;
-            // height: 30%;
+            top: 32vh;
             height: 24%;
-            
-            //***Alternative
-            //top: 50vh;
-            //height: 18%;
-            
-            // width: 60%;
-            width: 50%;
+            width: 60%;
             padding-bottom: 0px;
         }
     }
@@ -162,15 +143,10 @@
         flex-direction: column;
         padding: 0px 16px 16px 16px;
         cursor: pointer;
+        
         &:hover {
-            //background-color: $mercury;
             background-color: $alabaster;
         }
-
-        // &--active {
-        //     // For testing purposes
-        //     background-color: red;
-        // }
     }
 
     &__label {
@@ -187,8 +163,6 @@
         &--date {
             @include type-kit(13px, 18px, "Avenir Next Demi");
         }
-
-
     }
 
     //Possibly make global for both "bio" and "shows" pages
@@ -208,7 +182,7 @@
     }
 
     @include tablet {
-        padding: 48px 36px 0px 36px;
+        padding: 48px 36px 24px 36px;
 
         &__header {
             @include type-kit(36px, 44px, "Avenir Next Demi");
@@ -257,7 +231,7 @@
 
     @include desktop {
         display: flex;
-        padding: 48px 56px 0px 56px;
+        padding: 48px 56px 16px 56px;
         justify-content: space-evenly;
         width: 80%;
 
@@ -267,15 +241,10 @@
 
         &__dvl {
             padding: 24px 16px 16px 16px;
-            // width: 120%;
-            //width: 115%;
             width: 125%;
         }
 
         &__label {
-            //width: 20%;
-            // width: 30%;
-            
             width: 25%;
             margin-right: 10px;
 

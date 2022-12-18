@@ -276,11 +276,11 @@ form {
 }
 @media screen and (min-width: 768px) {
   .hero {
-    height: 100vh;
+    height: 75vh;
     padding: 0px 36px;
   }
   .hero::before {
-    height: 100vh;
+    height: 75vh;
   }
   .hero__title {
     font-size: 60px;
@@ -290,10 +290,10 @@ form {
 }
 @media screen and (min-width: 1280px) {
   .hero {
-    height: 150vh;
+    height: 100vh;
   }
   .hero::before {
-    height: 150vh;
+    height: 100vh;
   }
   .hero__title {
     margin-left: 40px;
@@ -316,10 +316,12 @@ form {
   padding: 0;
 }
 .about-musicians__img {
-  width: 288px;
   padding-bottom: 16px;
   min-width: 100%;
   height: auto;
+  width: 18rem;
+  min-height: 177.58px;
+  max-height: 428.36px;
 }
 .about-musicians__quote, .about-musicians__quoter {
   font-size: 14px;
@@ -343,6 +345,9 @@ form {
   }
   .about-musicians__img {
     padding-bottom: 36px;
+    width: 41rem;
+    height: 30rem;
+    min-width: 0%;
   }
   .about-musicians__quote, .about-musicians__quoter {
     font-size: 24px;
@@ -361,6 +366,10 @@ form {
   }
   .about-musicians__content {
     padding: 0px 32px 0px 32px;
+  }
+  .about-musicians__img {
+    width: 48rem;
+    height: 30rem;
   }
   .about-musicians__quote, .about-musicians__quoter {
     width: 65%;

@@ -75,14 +75,12 @@ function renderComments() {
 
     for (let i = commentListings.length - 1; i >= 0; i--) {
         const card = createCommentCard(commentListings[i]);
-        // commentsEl.appendChild(card);
         commentContainerEl.appendChild(card);
     }
 
     let hrElBottom = document.createElement("hr");
     hrElBottom.classList.add("comment-object__divider");
     commentContainerEl.appendChild(hrElBottom);
-    // commentsEl.appendChild(hrElBottom);
     commentsEl.appendChild(commentContainerEl);
     
     conversationsEl.appendChild(commentsEl);
@@ -98,21 +96,11 @@ function handleFormSubmit(event) {
     console.log("Comment: " + event.target.comment.value);
 
     let inputSpacesRGEX = /^[\s]+$/;
-    // let nameRGEX = /^[A-Z][a-z]+\s[A-Z][a-z]+$/;
-    // let nameRGEX = /^[A-Z][a-z]+\s[A-Z][a-z]+\'?[[-\s][A-Z][a-z]+\.?]?$/;
-    //let nameRGEX = /^[A-Z][a-z]+\s[A-Z][a-z]?[A-Z]?[a-z]+([-\s][A-Z][a-z]+\.?)?$/;
-    // let nameRGEX = /^[A-Z]([a-z]+-?)?[A-Z]?[a-z]+\s[A-Z][a-z]?[A-Z]?[a-z]+([-\s][A-Z][a-z]+\.?)?$/;
     let nameRGEX = /^[A-Z]([a-z]+-?)?[A-Z]?[a-z]+\s[A-Z][a-z]?[A-Z]?[a-z]+([-\s][A-Z][a-z]+(([-][A-Z][a-z]+)|\.)?)?$/;
-    //let nameRGEX = /^[A-Z][a-z]+\s[A-Z][a-z]+[[\'-\s][A-Z][a-z]+\.?]?$/;
-    let commentRGEX = /^[^\s]+[\w\W\s]+$/;
     
     let nameSpacesResult = inputSpacesRGEX.test(event.target.name.value);
     let nameResult = nameRGEX.test(event.target.name.value);
     let commentSpacesResult = inputSpacesRGEX.test(event.target.comment.value);
-    let commentResult = commentRGEX.test(event.target.comment.value);
-    
-    console.log("Length of name: " + event.target.name.value.length);
-    console.log("Length of comment: " + event.target.comment.value.length);
 
     if (event.target.name.value.length === 0 || nameSpacesResult == true) {
         nameInputStatus.classList.add("comments__nameInput--errorState");
@@ -124,15 +112,6 @@ function handleFormSubmit(event) {
         return;
     }
 
-    // if (event.target.comment.value.length === 0 || commentSpacesResult == true) {
-    //     commentInputStatus.classList.add("comments__nameInput--errorState");
-    //     alert('Invalid data! Please enter valid data for the comment.');
-    //     return;
-    // } else if (commentResult == false) {
-    //     commentInputStatus.classList.add("comments__nameInput--errorState");
-    //     alert('Invalid comment! Please enter a proper comment preferably one without starting spaces');
-    //     return;
-    // }
     if (event.target.comment.value.length === 0 || commentSpacesResult == true) {
         commentInputStatus.classList.add("comments__nameInput--errorState");
         alert('Invalid data! Please enter a proper comment preferably one without starting spaces');

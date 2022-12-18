@@ -55,10 +55,6 @@ $alabaster: #FAFAFA;
 }
 
 @mixin img-card-layout($br, $w, $h, $bc) {
-    // border-radius: 50%;
-    // width: 36px;
-    // height: 36px;
-    // background-color: $mercury;
     border-radius: $br;
     width: $w;
     height: $h;
