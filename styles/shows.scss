@@ -71,10 +71,14 @@
 
     @include tablet {
         height: 100vh;
+        //***Alternative
+        //height: 75vh;
         padding: 0px 36px;
 
         &::before {
             height: 100vh;
+            //***Alternative
+            //height: 75vh;
         }
 
         //***
@@ -121,9 +125,18 @@
         }
          
         &__soundCloud {
-            top: 52vh;
-            height: 30%;
-            width: 60%;
+            // top: 52vh;
+            top: 55vh;
+            // height: 30%;
+            height: 24%;
+            
+            //***Alternative
+            //top: 50vh;
+            //height: 18%;
+            
+            // width: 60%;
+            width: 50%;
+            padding-bottom: 0px;
         }
     }
 }

@@ -8,13 +8,7 @@ form {
 
     @include tablet {
         width: 90%;
-        // display: flex;
-        // flex-direction: column;
     }
-
-    // @include desktop {
-    //     width: 50%;
-    // }
 }
 
 .hero {
@@ -50,6 +44,8 @@ form {
 
     @include tablet {
         height: 100vh;
+        //***Alternative
+        //height: 75vh;
         padding: 0px 36px;
 
         &::before {
@@ -63,6 +59,8 @@ form {
 
     @include desktop {
         height: 150vh;
+        //***Alterntaive
+        //height: 100vh;
 
         &::before {
             height: 150vh;
@@ -261,28 +259,19 @@ form {
 
     &__form {
         display: flex;
-        //flex-direction: column;
         justify-content: space-between;
     }
 
     &__imgCard {
         background-image: url('../assets/images/Mohan-muruge.jpg');
         @include img-card-layout(50%, 36px, 36px, $mercury);
-        // border-radius: 50%;
-        // width: 36px;
-        // height: 36px;
-        // background-color: $mercury;
         background-size: cover;
         position: relative;
-        //top: 1.5rem;
-        //For div
-        // top: 20px;
         top: 24px;
     }
 
     &__formField {
         border: 0;
-        //padding-bottom: 16px;
         display: flex;
         flex-direction: column;
         gap: 16px;
@@ -298,7 +287,6 @@ form {
         @include type-kit(10px, 20px, "Avenir Next Bold");
         color: $silver;
         text-transform: uppercase;
-        //padding-bottom: 4px;
     }
 
     &__nameInput {
@@ -313,10 +301,6 @@ form {
             border: 1px solid $bandsite-black;
             background-color: $white;
         }
-
-        // &:invalid {
-        //     border: 1px solid #D22D2D;
-        // }
 
         &--errorState {
             border: 1px solid #D22D2D;
@@ -354,7 +338,6 @@ form {
         }
 
         &__form {
-            // width: 90%;
             margin: auto;
             width: 80%;
             gap: 15px;
@@ -388,7 +371,7 @@ form {
 
     @include desktop {
         //*** [photo-gallery]
-        padding: 0px 56px 56px 56px;
+        padding: 0px 56px 36px 56px;
 
         &__form {
             width: 50%;
@@ -400,8 +383,22 @@ form {
     }
 }
 
+.comment-container {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+        margin: auto;
+        width: 83%;
+    }
+
+    @include desktop {
+        width: 50%;
+    }
+}
+
 .comment-object {
-    margin-bottom: 16px;
+    //margin-bottom: 16px;
 
     &__content {
         display: flex;
@@ -438,5 +435,36 @@ form {
         }
     }
 
-    
+    @include tablet {
+        margin-bottom: 0px;
+
+        &__content {
+            margin: 24px 0px;
+            gap: 15px;
+        }
+        
+        &__avatar {
+            @include img-card-layout(50%, 48px, 48px, $mercury);
+        }
+        
+        &__text {
+            @include type-kit(14px, 22px, "Avenir Next Regular");
+
+            &--commenter {
+                @include type-kit(14px, 22px, "Avenir Next Demi");
+            }
+        }
+    }
+
+    @include desktop {
+
+        &__content {
+            margin: 24px 0px;
+            gap: 20px;
+        }
+
+        &__data-section {
+            width: 100%;
+        }
+    }
 }

@@ -70,15 +70,21 @@ function renderComments() {
     const commentsEl = document.createElement("div");
     commentsEl.classList.add("comments");
 
+    const commentContainerEl = document.createElement("div");
+    commentContainerEl.classList.add("comment-container");
+
     for (let i = commentListings.length - 1; i >= 0; i--) {
         const card = createCommentCard(commentListings[i]);
-        commentsEl.appendChild(card);
+        // commentsEl.appendChild(card);
+        commentContainerEl.appendChild(card);
     }
 
     let hrElBottom = document.createElement("hr");
     hrElBottom.classList.add("comment-object__divider");
-    commentsEl.appendChild(hrElBottom);
-
+    commentContainerEl.appendChild(hrElBottom);
+    // commentsEl.appendChild(hrElBottom);
+    commentsEl.appendChild(commentContainerEl);
+    
     conversationsEl.appendChild(commentsEl);
 }
 
@@ -92,7 +98,12 @@ function handleFormSubmit(event) {
     console.log("Comment: " + event.target.comment.value);
 
     let inputSpacesRGEX = /^[\s]+$/;
-    let nameRGEX = /^[A-Z][a-z]+\s[A-Z][a-z]+$/;
+    // let nameRGEX = /^[A-Z][a-z]+\s[A-Z][a-z]+$/;
+    // let nameRGEX = /^[A-Z][a-z]+\s[A-Z][a-z]+\'?[[-\s][A-Z][a-z]+\.?]?$/;
+    //let nameRGEX = /^[A-Z][a-z]+\s[A-Z][a-z]?[A-Z]?[a-z]+([-\s][A-Z][a-z]+\.?)?$/;
+    // let nameRGEX = /^[A-Z]([a-z]+-?)?[A-Z]?[a-z]+\s[A-Z][a-z]?[A-Z]?[a-z]+([-\s][A-Z][a-z]+\.?)?$/;
+    let nameRGEX = /^[A-Z]([a-z]+-?)?[A-Z]?[a-z]+\s[A-Z][a-z]?[A-Z]?[a-z]+([-\s][A-Z][a-z]+(([-][A-Z][a-z]+)|\.)?)?$/;
+    //let nameRGEX = /^[A-Z][a-z]+\s[A-Z][a-z]+[[\'-\s][A-Z][a-z]+\.?]?$/;
     let commentRGEX = /^[^\s]+[\w\W\s]+$/;
     
     let nameSpacesResult = inputSpacesRGEX.test(event.target.name.value);
@@ -109,17 +120,22 @@ function handleFormSubmit(event) {
         return;
     } else if (nameResult == false) {
         nameInputStatus.classList.add("comments__nameInput--errorState");
-        alert('Invalid name! Please enter a proper name e.g. Taylor Swift, Bruce Springsteen');
+        alert('Invalid name! Please enter a full proper name with an optional middle name (e.g. Taylor Swift, Bruce Springsteen).\nYou may use a \'.\' at the end of your name in cases of Jr and Sr names (e.g. Gary Clark Jr.).\nYou may also use only one additional letter in cases of names like McCartney as well as dashes (\'-\') in case of first/last names being combined together (e.g. Guy-Manuel De Homem-Christo).\nNo apostrophes in names are allowed either (e.g. O\'Shea Jackson, Sinead O\'Connor). Sorry...');
         return;
     }
 
+    // if (event.target.comment.value.length === 0 || commentSpacesResult == true) {
+    //     commentInputStatus.classList.add("comments__nameInput--errorState");
+    //     alert('Invalid data! Please enter valid data for the comment.');
+    //     return;
+    // } else if (commentResult == false) {
+    //     commentInputStatus.classList.add("comments__nameInput--errorState");
+    //     alert('Invalid comment! Please enter a proper comment preferably one without starting spaces');
+    //     return;
+    // }
     if (event.target.comment.value.length === 0 || commentSpacesResult == true) {
         commentInputStatus.classList.add("comments__nameInput--errorState");
-        alert('Invalid data! Please enter valid data for the comment.');
-        return;
-    } else if (commentResult == false) {
-        commentInputStatus.classList.add("comments__nameInput--errorState");
-        alert('Invalid comment! Please enter a proper comment preferably one without starting spaces');
+        alert('Invalid data! Please enter a proper comment preferably one without starting spaces');
         return;
     }
 

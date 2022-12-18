@@ -598,7 +598,7 @@ form {
 }
 @media screen and (min-width: 1280px) {
   .comments {
-    padding: 0px 56px 56px 56px;
+    padding: 0px 56px 36px 56px;
   }
   .comments__form {
     width: 50%;
@@ -606,9 +606,22 @@ form {
   }
 }
 
-.comment-object {
-  margin-bottom: 16px;
+.comment-container {
+  display: flex;
+  flex-direction: column;
 }
+@media screen and (min-width: 768px) {
+  .comment-container {
+    margin: auto;
+    width: 83%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .comment-container {
+    width: 50%;
+  }
+}
+
 .comment-object__content {
   display: flex;
   margin: 16px 0px;
@@ -643,4 +656,38 @@ form {
 }
 .comment-object__text--time {
   color: #E1E1E1;
+}
+@media screen and (min-width: 768px) {
+  .comment-object {
+    margin-bottom: 0px;
+  }
+  .comment-object__content {
+    margin: 24px 0px;
+    gap: 15px;
+  }
+  .comment-object__avatar {
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    background-color: #E1E1E1;
+  }
+  .comment-object__text {
+    font-size: 14px;
+    line-height: 22px;
+    font-family: "Avenir Next Regular";
+  }
+  .comment-object__text--commenter {
+    font-size: 14px;
+    line-height: 22px;
+    font-family: "Avenir Next Demi";
+  }
+}
+@media screen and (min-width: 1280px) {
+  .comment-object__content {
+    margin: 24px 0px;
+    gap: 20px;
+  }
+  .comment-object__data-section {
+    width: 100%;
+  }
 }/*# sourceMappingURL=bio.css.map */

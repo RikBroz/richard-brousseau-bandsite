@@ -328,9 +328,10 @@ hr {
     width: 70%;
   }
   .hero__soundCloud {
-    top: 52vh;
-    height: 30%;
-    width: 60%;
+    top: 55vh;
+    height: 24%;
+    width: 50%;
+    padding-bottom: 0px;
   }
 }
 
