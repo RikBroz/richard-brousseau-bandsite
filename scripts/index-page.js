@@ -60,7 +60,8 @@ function createCommentCard(commentInfo) {
     return cardEl;
 }
 
-function renderComments() {
+function displayComment() {
+// function renderComments() {
     const conversationsEl = document.querySelector("#conversations");
     conversationsEl.innerHTML = "";
 
@@ -121,7 +122,11 @@ function handleFormSubmit(event) {
     }
 
     const date = new Date();
-    let currentDate = `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`;
+    console.log(date);
+    // let currentDate = `${date.getMonth()+1}/${date.getDate()}/${date.getFullYear()}`;
+    let currentDate = `${((date.getMonth()+1) < 10 ? '0' : '') + (date.getMonth()+1)}/${(date.getDate() < 10 ? '0' : '') + date.getDate()}/${date.getFullYear()}`;
+    console.log(currentDate);
+    // let currentDate = `${date.getMonth()+1}/${(date.getDate() < 10 ? '0' : '') + date.getDate()}/${date.getFullYear()}`;
     console.log(currentDate);
 
     const cardData = {
@@ -134,10 +139,12 @@ function handleFormSubmit(event) {
     commentListings.push(cardData);
     console.log(commentListings);
 
-    renderComments();
+    displayComment();
+    // renderComments();
 }
 
 const formEl = document.querySelector('#comment-form');
 console.log(formEl);
 formEl.addEventListener('submit', handleFormSubmit);
-renderComments();
+displayComment();
+// renderComments();
