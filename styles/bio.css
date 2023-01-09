@@ -553,6 +553,7 @@ form {
 }
 .comments__commentInput {
   padding-bottom: 75px;
+  font-family: "Avenir Next Regular";
 }
 .comments__button {
   background-color: #323232;

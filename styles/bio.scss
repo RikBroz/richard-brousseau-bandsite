@@ -302,6 +302,7 @@ form {
     &__commentInput {
         @extend .comments__nameInput;
         padding-bottom: 75px;
+        font-family: "Avenir Next Regular";
     }
 
     &__button {

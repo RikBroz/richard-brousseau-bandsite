@@ -1,20 +1,34 @@
-let commentListings = [
-    {   
-        name: "Miles Acosta", 
-        timestamp: "12/20/2020", 
-        comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough." 
-    },
-    {   
-        name: "Emilie Beach", 
-        timestamp: "01/09/2021", 
-        comment: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day." 
-    },
-    {   
-        name: "Connor Walton", 
-        timestamp: "02/17/2021", 
-        comment: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains." 
-    },
-];
+// let api_key = "cce80dd4-ab49-48cf-b8c5-e549dc5146a9";
+// import { api_key } from "./const.js";
+
+axios
+    .get(`https://project-1-api.herokuapp.com/comments?api_key=${api_key}`)
+    .then((response) => {
+        console.log(response.data);
+        displayComment(response.data);
+    }
+    ).catch((error) => {
+        console.log(error);
+    }
+);
+
+// let commentListings = [
+//     {   
+//         name: "Miles Acosta", 
+//         timestamp: "12/20/2020", 
+//         comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough." 
+//     },
+//     {   
+//         name: "Emilie Beach", 
+//         timestamp: "01/09/2021", 
+//         comment: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day." 
+//     },
+//     {   
+//         name: "Connor Walton", 
+//         timestamp: "02/17/2021", 
+//         comment: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains." 
+//     },
+// ];
 
 function createCommentCard(commentInfo) {
     const cardEl = document.createElement("div");
@@ -41,8 +55,23 @@ function createCommentCard(commentInfo) {
     console.log(commenterName.innerText);
     commenterName.classList.add("comment-object__text", "comment-object__text--commenter");
     let dateOfComment = document.createElement("p");
-    dateOfComment.innerText = commentInfo.timestamp;
+    /* 
+    const date = new Date();
+    console.log(date);
+    */
+    //let currentDate = `${((date.getMonth()+1) < 10 ? '0' : '') + (date.getMonth()+1)}/${(date.getDate() < 10 ? '0' : '') + date.getDate()}/${date.getFullYear()}`;
+    const userDate = new Date(commentInfo.timestamp);
+    console.log("user date is: " + userDate);
+    // let userDateFormatted = `${((userDate.getMonth()+1) < 10 ? '0' : '') + (userDate.getMonth()+1)}/${(userDate.getDate() < 10 ? '0' : '') + userDate.getDate()}/${userDate.getFullYear()}`;
+    // console.log("formatted user date is: " + userDateFormatted);
+    let userDateFormatted = `${((userDate.getUTCMonth()+1) < 10 ? '0' : '') + (userDate.getUTCMonth()+1)}/${(userDate.getUTCDate() < 10 ? '0' : '') + userDate.getUTCDate()}/${userDate.getUTCFullYear()}`;
+    console.log("formatted user date is: " + userDateFormatted);
+
+    // dateOfComment.innerText = commentInfo.timestamp;
+    dateOfComment.innerText = userDateFormatted;
     console.log(dateOfComment.innerText);
+   
+
     dateOfComment.classList.add("comment-object__text", "comment-object__text--time");
     nameDateContainer.appendChild(commenterName);
     nameDateContainer.appendChild(dateOfComment);
@@ -60,8 +89,7 @@ function createCommentCard(commentInfo) {
     return cardEl;
 }
 
-function displayComment() {
-// function renderComments() {
+function displayComment(commentListings) {
     const conversationsEl = document.querySelector("#conversations");
     conversationsEl.innerHTML = "";
 
@@ -71,7 +99,11 @@ function displayComment() {
     const commentContainerEl = document.createElement("div");
     commentContainerEl.classList.add("comment-container");
 
-    for (let i = commentListings.length - 1; i >= 0; i--) {
+    // for (let i = commentListings.length - 1; i >= 0; i--) {
+    //     const card = createCommentCard(commentListings[i]);
+    //     commentContainerEl.appendChild(card);
+    // }
+    for (let i = 0; i < commentListings.length; i++) {
         const card = createCommentCard(commentListings[i]);
         commentContainerEl.appendChild(card);
     }
@@ -139,12 +171,10 @@ function handleFormSubmit(event) {
     commentListings.push(cardData);
     console.log(commentListings);
 
-    displayComment();
-    // renderComments();
+    // displayComment();
 }
 
 const formEl = document.querySelector('#comment-form');
 console.log(formEl);
 formEl.addEventListener('submit', handleFormSubmit);
-displayComment();
-// renderComments();
+// displayComment();
