@@ -3,6 +3,18 @@ axios
     .then((response) => {
         console.log(response.data);
         renderShows(response.data);
+
+        let sC = document.getElementsByClassName("shows__content");
+        for (let i = 0; i < sC.length; i++) {
+            sC[i].addEventListener("click", function() {
+                console.log("Clicked on show");
+                let current = document.getElementsByClassName("active");
+                if (current.length > 0) {
+                    current[0].className = current[0].className.replace(" active", "");
+                }
+                this.className += " active";
+            });
+        }
     }
     ).catch((error) => {
         console.log(error);
@@ -43,25 +55,6 @@ function createShowCard(show) {
     let showDateFormatted = new Date(showDate.getFullYear(), showDate.getMonth(), showDate.getUTCDate());
     console.log("CORRECT formatted show date is: " + (showDateFormatted.toDateString()));
 
-    // const showDate2 = new Date(Date.UTC(showDate.getFullYear(), showDate.getMonth(), showDate.getDay()));
-    /* const showDate2 = new Date(Date.UTC(showDate.getFullYear(), showDate.getUTCMonth(), showDate.getUTCDate()));
-    console.log("CORRECT show date is: " + showDate2.toUTCString()); */
-    // console.log("CORRECT show date is: " + (showDate.getDate()+1));
-    //date.toLocaleString('en-US', { month: 'short' });
-
-    /* const showDateDay = (showDate.getDay()+1).toLocaleString('en-US', { weekday: 'long' });
-    console.log("show date day is: " + showDateDay);
-    console.log("formatted show date day is: " + showDate.toLocaleString('en-US', { weekday: 'short' }));
-    console.log("formatted show date month is: " + showDate.toLocaleString('en-US', { month: 'short' })); */
-    // let showDateFormatted = `${showDate.getUTCDay()} ${((showDate.getUTCMonth()+1) < 10 ? '0' : '') + (showDate.getUTCMonth()+1)} ${(showDate.getUTCDate() < 10 ? '0' : '') + showDate.getUTCDate()} ${showDate.getUTCFullYear()}`;
-   
-    // let showDateFormatted = `${showDate2.getUTCDay()} ${((showDate2.getUTCMonth()+1) < 10 ? '0' : '') + (showDate2.getUTCMonth()+1)} ${(showDate2.getUTCDate() < 10 ? '0' : '') + showDate2.getUTCDate()} ${showDate2.getUTCFullYear()}`;
-    /* let showDateFormatted = showDate2;
-    console.log("formatted show date is: " + showDateFormatted); */
-    // console.log("CORRECT formatted show date is: " + (showDate2.toDateString()));
-    /* console.log("CORRECT formatted show date is: " + (showDateFormatted.toDateString()));*/
-
-    // dateContentEl.innerText = show.date;
     dateContentEl.innerText = showDateFormatted.toDateString();
     dateContentEl.classList.add("shows__data", "shows__data--date");
     console.log(dateContentEl.innerText);
@@ -145,14 +138,14 @@ function renderShows(showListings) {
 
 // renderShows();
 
-let sC = document.getElementsByClassName("shows__content");
-for (let i = 0; i < sC.length; i++) {
-    sC[i].addEventListener("click", function() {
-        console.log("Clicked on show");
-        let current = document.getElementsByClassName("active");
-        if (current.length > 0) {
-            current[0].className = current[0].className.replace(" active", "");
-        }
-        this.className += " active";
-    });
-}
+// let sC = document.getElementsByClassName("shows__content");
+// for (let i = 0; i < sC.length; i++) {
+//     sC[i].addEventListener("click", function() {
+//         console.log("Clicked on show");
+//         let current = document.getElementsByClassName("active");
+//         if (current.length > 0) {
+//             current[0].className = current[0].className.replace(" active", "");
+//         }
+//         this.className += " active";
+//     });
+// }
