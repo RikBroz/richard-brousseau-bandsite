@@ -4,6 +4,7 @@ axios
         console.log(response.data);
         renderShows(response.data);
 
+        //NOt passing enough parameters
         let sC = document.getElementsByClassName("shows__content");
         for (let i = 0; i < sC.length; i++) {
             sC[i].addEventListener("click", function() {

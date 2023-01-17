@@ -667,6 +667,15 @@ form {
 .comment-object__text--time {
   color: #E1E1E1;
 }
+.comment-object__icon-container {
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+}
+.comment-object__like-container {
+  display: flex;
+  gap: 5px;
+}
 @media screen and (min-width: 768px) {
   .comment-object {
     margin-bottom: 0px;
@@ -690,6 +699,9 @@ form {
     font-size: 14px;
     line-height: 22px;
     font-family: "Avenir Next Demi";
+  }
+  .comment-object__icon-container {
+    width: 20%;
   }
 }
 @media screen and (min-width: 1280px) {

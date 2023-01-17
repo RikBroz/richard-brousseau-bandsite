@@ -1,19 +1,135 @@
 // let api_key = "cce80dd4-ab49-48cf-b8c5-e549dc5146a9";
 // import { api_key } from "./const.js";
-
 let comments = [];
 
-axios
-    .get(`https://project-1-api.herokuapp.com/comments?api_key=${api_key}`)
-    .then((response) => {
-        console.log(response.data);
-        displayComments(response.data);
-        comments = response.data;
-    }
-    ).catch((error) => {
-        console.log(error);
-    }
-);
+// function for axios get
+function getComments() {
+    axios
+        .get(`https://project-1-api.herokuapp.com/comments?api_key=${api_key}`)
+        .then((response) => {
+            console.log(response.data);
+            let sortedComments = [];
+            console.log(response.data.length);
+            //*** TRY NEXT
+            for (let i = 0; i < response.data.length; i++) {
+                //*** What if you were delete 1 of the 3 original comments?
+                if (i < 3) {
+                    console.log("PREVIOUS DATA");
+                    console.log(response.data[i]);
+                    sortedComments[i] = response.data[i];
+                }
+                else {
+                    console.log("MY OWN DATA")
+                    console.log(response.data[i]);
+                    sortedComments.unshift(response.data[i]);
+                }
+            }
+            comments = sortedComments;
+            console.log(comments);
+            displayComments(sortedComments);
+
+            // displayComments(response.data);
+            // comments = response.data;
+            // console.log(comments);
+        }
+        ).catch((error) => {
+            console.log(error);
+        }
+    );
+}
+getComments();
+
+// function for axios put
+function putComments(id, likes) {
+    axios
+        .put(`https://project-1-api.herokuapp.com/comments/${id}/like?api_key=${api_key}`, {
+            likes: (likes+1)
+        }
+        ).then((result) => {
+            console.log(result.data);
+            console.log(result.data.id);
+            console.log(comments);
+            for (let i = 0; i < comments.length; i++) {
+                console.log(comments[i].id);
+            }
+            getComments();
+        }
+        ).catch((error) => {
+            console.log(error);
+            console.log("ID does not exist");
+        }
+    );
+}
+
+// funciton for axios delete
+function deleteComments(id) {
+    axios
+        .delete(`https://project-1-api.herokuapp.com/comments/${id}?api_key=${api_key}`)
+        .then((result) => {
+            console.log(result.data);
+            console.log(result.data.id);
+            console.log(comments);
+
+            //*** Remove the comment object with that specific id
+            for (let i = 0; i < comments.length; i++) {
+                if (comments[i].id === result.data.id) {
+                    console.log("COMMENTS array and RESULT.DATA match ids");
+                    comments.splice(i, 1);
+                }
+            }
+            console.log("COMMENTS array now: ");
+            console.log(comments);
+            getComments();
+        }
+        ).catch((error) => {
+            console.log(error);
+            console.log("ID does not exist");
+        }
+    );
+}
+
+// axios
+//     .get(`https://project-1-api.herokuapp.com/comments?api_key=${api_key}`)
+//     .then((response) => {
+//         console.log(response.data);
+//         displayComments(response.data);
+//         comments = response.data;
+
+//         // for (let j = 0; j < comments.length; j++) {
+//         //     // let likeButtonIndicator = document.getElementsByClassName("fa-thumbs-up");
+//         //     // likeButtonIndicator[j].addEventListener("click", function() {
+//         //     //     console.log("Clicked on like button");
+//         //     // });
+//         //     let likeButtonIndicator = document.getElementById(comments[j].id);
+//         //     likeButtonIndicator.addEventListener("click", function() {
+//         //         console.log("Clicked on like button");
+//         //         console.log("Id of clicked comment is: " + comments[j].id);
+//         //         axios
+//         //             .put(`https://project-1-api.herokuapp.com/comments/${comments[j].id}/like?api_key=${api_key}`, {
+//         //                 likes: (comments[j].likes.value+1)
+//         //             }
+//         //             ).then((result) => {
+//         //                 console.log(result.data);
+//         //             }
+//         //             ).catch((error) => {
+//         //                 console.log(error);
+//         //                 console.log("ID does not exist");
+//         //             }
+//         //         );
+//         //     });
+//         // }
+
+//         // let likeButtonIndicator = document.getElementsByClassName("fa-thumbs-up");
+//         // for (let i = 0; i < likeButtonIndicator.length; i++) {
+//         //     likeButtonIndicator[i].addEventListener("click", function() {
+//         //         console.log("Clicked on like button");
+//         //     });
+//         // }
+//     }
+//     ).catch((error) => {
+//         console.log(error);
+//     }
+// );
 
 
 // axios
@@ -64,7 +180,6 @@ function createCommentCard(commentInfo) {
     dateOfComment.innerText = userDateFormatted;
     console.log(dateOfComment.innerText);
    
-
     dateOfComment.classList.add("comment-object__text", "comment-object__text--time");
     nameDateContainer.appendChild(commenterName);
     nameDateContainer.appendChild(dateOfComment);
@@ -74,9 +189,61 @@ function createCommentCard(commentInfo) {
     console.log(commenterText.innerText);
     commenterText.classList.add("comment-object__text");
 
+    //***
+    let iconContainer = document.createElement("div");
+    iconContainer.classList.add("comment-object__icon-container");
+
+    let likeContainer = document.createElement("div");
+    likeContainer.classList.add("comment-object__like-container");
+
+    let likeIcon = document.createElement("i");
+    likeIcon.classList.add("fa-solid", "fa-thumbs-up");
+    let likeCounter = document.createElement("span");
+    likeIcon.id = commentInfo.id;
+    // likeCounter.innerText = commentInfo.likes;
+    //Addeventlistener?? **
+    // for (let j = 0; j < comments.length; j++) {
+    //     let likeButtonIndicator = document.getElementById(comments[j].id);
+    likeIcon.addEventListener("click", function() {
+        console.log("Clicked on like button");
+        console.log(likeIcon.id);
+            //console.log("Id of clicked comment is: " + comments[j].id);
+        putComments(likeIcon.id, commentInfo.likes);
+    });
+    // }
+    // likeCounter.classList.add
+    likeCounter.innerText = commentInfo.likes;
+    // commenterName.innerText = commentInfo.name;
+    likeContainer.append(likeIcon, likeCounter);
+
+    let trashIcon = document.createElement("i");
+    trashIcon.classList.add("fa-solid", "fa-trash");
+    //*** Add an event listener
+    trashIcon.id = commentInfo.id;
+    trashIcon.addEventListener("click", function() {
+        console.log("Clicked on delete button");
+        console.log(trashIcon.id);
+        deleteComments(trashIcon.id);
+    });
+
+    iconContainer.append(likeContainer, trashIcon);
+
+    // let iconContainer = document.createElement("i");
+    // iconContainer.classList.add("comment-object__icon", "fa-solid", "fa-thumbs-up");
+
     textContainer.appendChild(nameDateContainer);
     textContainer.appendChild(commenterText);
+    
+    //***
+    textContainer.appendChild(iconContainer);
+
     cardEl2.appendChild(textContainer);
+
+    //***
+    // let iconContainer = document.createElement("i");
+    // iconContainer.classList.add("comment-object__icon", "fa-solid", "fa-thumbs-up");
+    // cardEl2.appendChild(iconContainer);
+
     cardEl.appendChild(cardEl2);
 
     return cardEl;
@@ -103,7 +270,7 @@ function displayComments(commentListings) {
 
     const commentContainerEl = document.createElement("div");
     commentContainerEl.classList.add("comment-container");
-
+    // for (let i = commentListings.length; i >= 0; i--) {
     for (let i = 0; i < commentListings.length; i++) {
         const card = createCommentCard(commentListings[i]);
         commentContainerEl.appendChild(card);
@@ -214,3 +381,24 @@ const formEl = document.querySelector('#comment-form');
 console.log(formEl);
 formEl.addEventListener('submit', handleFormSubmit);
 // displayComment();
+
+
+
+
+// let likeButtonIndicator = document.getElementsByClassName("fa-thumbs-up");
+// for (let i = 0; i < likeButtonIndicator.length; i++) {
+//     likeButtonIndicator[i].addEventListener("click", function() {
+//         console.log("Clicked on like button");
+//     });
+// }
+/* let sC = document.getElementsByClassName("shows__content");
+for (let i = 0; i < sC.length; i++) {
+    sC[i].addEventListener("click", function() {
+        console.log("Clicked on like button");
+        let current = document.getElementsByClassName("active");
+        if (current.length > 0) {
+            current[0].className = current[0].className.replace(" active", "");
+        }
+        this.className += " active";
+    });
+} */
