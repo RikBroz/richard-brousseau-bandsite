@@ -13,7 +13,9 @@ function getComments() {
             //*** TRY NEXT
             for (let i = 0; i < response.data.length; i++) {
                 //*** What if you were delete 1 of the 3 original comments?
-                if (i < 3) {
+                if (response.data[i].timestamp <= 1613538000000) {
+                // if (i < 3) {
+                    console.log("response.data[" + i + "].timestamp <= 1613538000000?: " + (response.data[i].timestamp <= 1613538000000));
                     console.log("PREVIOUS DATA");
                     console.log(response.data[i]);
                     sortedComments[i] = response.data[i];
