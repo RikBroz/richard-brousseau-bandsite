@@ -392,10 +392,12 @@ form {
     }
 
     &__data-section {
-        width: 90%;
+        // width: 90%;
+        width: 80%;
         display: flex;
         flex-direction: column;
         gap: 4px;
+        word-wrap: break-word;
     }
 
     &__personalData-section {
@@ -438,6 +440,10 @@ form {
             @include img-card-layout(50%, 48px, 48px, $mercury);
         }
         
+        &__data-section {
+            width: 90%;
+        }
+
         &__text {
             @include type-kit(14px, 22px, "Avenir Next Regular");
 

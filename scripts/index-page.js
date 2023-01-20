@@ -1,8 +1,6 @@
-// let api_key = "cce80dd4-ab49-48cf-b8c5-e549dc5146a9";
-// import { api_key } from "./const.js";
 let comments = [];
 
-// function for axios get
+// function for axios GET request
 function getComments() {
     axios
         .get(`https://project-1-api.herokuapp.com/comments?api_key=${api_key}`)
@@ -10,11 +8,9 @@ function getComments() {
             console.log(response.data);
             let sortedComments = [];
             console.log(response.data.length);
-            //*** TRY NEXT
             for (let i = 0; i < response.data.length; i++) {
-                //*** What if you were delete 1 of the 3 original comments?
+                //Biggest timestamp of the 3 default/stock comments is 1613538000000 ()
                 if (response.data[i].timestamp <= 1613538000000) {
-                // if (i < 3) {
                     console.log("response.data[" + i + "].timestamp <= 1613538000000?: " + (response.data[i].timestamp <= 1613538000000));
                     console.log("PREVIOUS DATA");
                     console.log(response.data[i]);
@@ -29,10 +25,6 @@ function getComments() {
             comments = sortedComments;
             console.log(comments);
             displayComments(sortedComments);
-
-            // displayComments(response.data);
-            // comments = response.data;
-            // console.log(comments);
         }
         ).catch((error) => {
             console.log(error);
@@ -41,7 +33,7 @@ function getComments() {
 }
 getComments();
 
-// function for axios put
+// function for axios PUT request
 function putComments(id, likes) {
     axios
         .put(`https://project-1-api.herokuapp.com/comments/${id}/like?api_key=${api_key}`, {
@@ -63,7 +55,7 @@ function putComments(id, likes) {
     );
 }
 
-// funciton for axios delete
+// funciton for axios DELETE request
 function deleteComments(id) {
     axios
         .delete(`https://project-1-api.herokuapp.com/comments/${id}?api_key=${api_key}`)
@@ -72,7 +64,7 @@ function deleteComments(id) {
             console.log(result.data.id);
             console.log(comments);
 
-            //*** Remove the comment object with that specific id
+            //Remove the comment object with that specific id
             for (let i = 0; i < comments.length; i++) {
                 if (comments[i].id === result.data.id) {
                     console.log("COMMENTS array and RESULT.DATA match ids");
@@ -89,64 +81,6 @@ function deleteComments(id) {
         }
     );
 }
-
-// axios
-//     .get(`https://project-1-api.herokuapp.com/comments?api_key=${api_key}`)
-//     .then((response) => {
-//         console.log(response.data);
-//         displayComments(response.data);
-//         comments = response.data;
-
-//         // for (let j = 0; j < comments.length; j++) {
-//         //     // let likeButtonIndicator = document.getElementsByClassName("fa-thumbs-up");
-//         //     // likeButtonIndicator[j].addEventListener("click", function() {
-//         //     //     console.log("Clicked on like button");
-//         //     // });
-//         //     let likeButtonIndicator = document.getElementById(comments[j].id);
-//         //     likeButtonIndicator.addEventListener("click", function() {
-//         //         console.log("Clicked on like button");
-//         //         console.log("Id of clicked comment is: " + comments[j].id);
-//         //         axios
-//         //             .put(`https://project-1-api.herokuapp.com/comments/${comments[j].id}/like?api_key=${api_key}`, {
-//         //                 likes: (comments[j].likes.value+1)
-//         //             }
-//         //             ).then((result) => {
-//         //                 console.log(result.data);
-//         //             }
-//         //             ).catch((error) => {
-//         //                 console.log(error);
-//         //                 console.log("ID does not exist");
-//         //             }
-//         //         );
-//         //     });
-//         // }
-
-//         // let likeButtonIndicator = document.getElementsByClassName("fa-thumbs-up");
-//         // for (let i = 0; i < likeButtonIndicator.length; i++) {
-//         //     likeButtonIndicator[i].addEventListener("click", function() {
-//         //         console.log("Clicked on like button");
-//         //     });
-//         // }
-//     }
-//     ).catch((error) => {
-//         console.log(error);
-//     }
-// );
-
-
-// axios
-//     .post(`https://project-1-api.herokuapp.com/comments?api_key=${api_key}`, {
-//         name: "",
-//         comment: ""
-//     }) 
-//     .then((response) => {
-//         console.log(response.data);
-//         displayComment(response.data);
-//     }
-//     ).catch((error) => {
-//         console.log(error);
-//     }
-// );
 
 function createCommentCard(commentInfo) {
     const cardEl = document.createElement("div");
@@ -191,7 +125,6 @@ function createCommentCard(commentInfo) {
     console.log(commenterText.innerText);
     commenterText.classList.add("comment-object__text");
 
-    //***
     let iconContainer = document.createElement("div");
     iconContainer.classList.add("comment-object__icon-container");
 
@@ -201,26 +134,19 @@ function createCommentCard(commentInfo) {
     let likeIcon = document.createElement("i");
     likeIcon.classList.add("fa-solid", "fa-thumbs-up");
     let likeCounter = document.createElement("span");
+    //Adding an event listener for the like button
     likeIcon.id = commentInfo.id;
-    // likeCounter.innerText = commentInfo.likes;
-    //Addeventlistener?? **
-    // for (let j = 0; j < comments.length; j++) {
-    //     let likeButtonIndicator = document.getElementById(comments[j].id);
     likeIcon.addEventListener("click", function() {
         console.log("Clicked on like button");
         console.log(likeIcon.id);
-            //console.log("Id of clicked comment is: " + comments[j].id);
         putComments(likeIcon.id, commentInfo.likes);
     });
-    // }
-    // likeCounter.classList.add
     likeCounter.innerText = commentInfo.likes;
-    // commenterName.innerText = commentInfo.name;
     likeContainer.append(likeIcon, likeCounter);
 
     let trashIcon = document.createElement("i");
     trashIcon.classList.add("fa-solid", "fa-trash");
-    //*** Add an event listener
+    //Adding an event listener for the delete button
     trashIcon.id = commentInfo.id;
     trashIcon.addEventListener("click", function() {
         console.log("Clicked on delete button");
@@ -230,22 +156,11 @@ function createCommentCard(commentInfo) {
 
     iconContainer.append(likeContainer, trashIcon);
 
-    // let iconContainer = document.createElement("i");
-    // iconContainer.classList.add("comment-object__icon", "fa-solid", "fa-thumbs-up");
-
     textContainer.appendChild(nameDateContainer);
     textContainer.appendChild(commenterText);
-    
-    //***
     textContainer.appendChild(iconContainer);
 
     cardEl2.appendChild(textContainer);
-
-    //***
-    // let iconContainer = document.createElement("i");
-    // iconContainer.classList.add("comment-object__icon", "fa-solid", "fa-thumbs-up");
-    // cardEl2.appendChild(iconContainer);
-
     cardEl.appendChild(cardEl2);
 
     return cardEl;
@@ -256,7 +171,6 @@ function displayComments(commentListings) {
     console.log("Type of commentListings?: " + typeof commentListings);
     console.log("Is commentListings an array?: " + Array.isArray(commentListings));
     console.log("Is commentListings NOT an array?: " + !Array.isArray(commentListings));
-    // let commentListingsArray = [];
     if (!Array.isArray(commentListings)) {
         commentListings = displayComment(commentListings);
     }
@@ -272,7 +186,6 @@ function displayComments(commentListings) {
 
     const commentContainerEl = document.createElement("div");
     commentContainerEl.classList.add("comment-container");
-    // for (let i = commentListings.length; i >= 0; i--) {
     for (let i = 0; i < commentListings.length; i++) {
         const card = createCommentCard(commentListings[i]);
         commentContainerEl.appendChild(card);
@@ -290,7 +203,7 @@ function displayComment(commentObject) {
     console.log("In the displayComment function!>>>>>>>>");
     console.log(commentObject);
     console.log("Length of COMMENTS array: " + comments.length);
-    // comments[comments.length] = commentObject; //Change to below code
+    //***
     comments.unshift(commentObject);
     console.log("NEW length of COMMENTS array: " + comments.length);
 
@@ -306,23 +219,65 @@ function displayComment(commentObject) {
 function handleFormSubmit(event) {
     event.preventDefault();
 
-    console.log("Name: " + event.target.name.value);
-    console.log("Comment: " + event.target.comment.value);
+    const postedName = event.target.name.value;
+    const postedComment = event.target.comment.value;
 
-    axios
-        .post(`https://project-1-api.herokuapp.com/comments?api_key=${api_key}`, {
-            name: event.target.name.value,
-            comment: event.target.comment.value
-        }
-        ).then((result) => {
-            console.log(result.data);
-            displayComments(result.data);
-            //displayComment(result.data);
-        }
-        ).catch((error) => {
-            console.log(error);
-        }
-    );   
+    console.log("Name: " + postedName);
+    console.log("Length of name: " + postedName.length);
+    console.log("Comment: " + postedComment);
+    console.log("Length of comment: " + postedComment.length);
+
+    const nameInputStatus = document.querySelector("#name");
+    const commentInputStatus = document.querySelector("#comment");
+    let inputSpacesRGEX = /^[\s]+$/;
+    let nameSpacesResult = inputSpacesRGEX.test(postedName);
+    let commentSpacesResult = inputSpacesRGEX.test(postedComment);
+    if (postedName.length === 0 || nameSpacesResult == true) {
+        nameInputStatus.classList.add("comments__nameInput--errorState");
+        alert('Invalid data! Please enter valid data for the name.');
+        return;
+    } else if (postedComment.length === 0 || commentSpacesResult == true) {
+        commentInputStatus.classList.add("comments__nameInput--errorState");
+        alert('Invalid data! Please enter a proper comment preferably one without starting spaces');
+        return;
+    } else {
+       if (nameInputStatus.classList.contains("comments__nameInput--errorState") || commentInputStatus.classList.contains("comments__nameInput--errorState")) {
+        nameInputStatus.classList.remove("comments__nameInput--errorState");
+        commentInputStatus.classList.remove("comments__nameInput--errorState");
+       }
+        
+        //axios POST request
+        axios
+            .post(`https://project-1-api.herokuapp.com/comments?api_key=${api_key}`, {
+                name: postedName,
+                comment: postedComment
+            }
+            ).then((result) => {
+                console.log(result.data);
+                console.log(result.data.name);
+                displayComments(result.data);
+            }
+            ).catch((error) => {
+                console.log(error);
+            }
+        );   
+    }
+    
+    // axios
+    //     .post(`https://project-1-api.herokuapp.com/comments?api_key=${api_key}`, {
+    //         name: postedName,
+    //         comment: postedComment
+    //     }
+    //     ).then((result) => {
+    //         console.log(result.data);
+    //         console.log(result.data.name);
+    //         displayComments(result.data);
+    //         //displayComment(result.data);
+    //     }
+    //     ).catch((error) => {
+    //         console.log(error);
+    //     }
+    // );   
     event.preventDefault();
     formEl.reset();
 

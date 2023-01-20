@@ -645,10 +645,11 @@ form {
   background-color: #E1E1E1;
 }
 .comment-object__data-section {
-  width: 90%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  word-wrap: break-word;
 }
 .comment-object__personalData-section {
   display: flex;
@@ -689,6 +690,9 @@ form {
     width: 48px;
     height: 48px;
     background-color: #E1E1E1;
+  }
+  .comment-object__data-section {
+    width: 90%;
   }
   .comment-object__text {
     font-size: 14px;
