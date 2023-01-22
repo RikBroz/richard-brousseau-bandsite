@@ -1,35 +1,27 @@
-axios
-    .get(`https://project-1-api.herokuapp.com/showdates?api_key=${api_key}`)
-    .then((response) => {
-        console.log(response.data);
-        renderShows(response.data);
+function getShows() {
+    axios
+        .get(`https://project-1-api.herokuapp.com/showdates?api_key=${api_key}`)
+        .then((response) => {
+            renderShows(response.data);
 
-        //NOt passing enough parameters
-        let sC = document.getElementsByClassName("shows__content");
-        for (let i = 0; i < sC.length; i++) {
-            sC[i].addEventListener("click", function() {
-                console.log("Clicked on show");
-                let current = document.getElementsByClassName("active");
-                if (current.length > 0) {
-                    current[0].className = current[0].className.replace(" active", "");
-                }
-                this.className += " active";
-            });
+            let showsContent = document.getElementsByClassName("shows__content");
+            for (let i = 0; i < showsContent.length; i++) {
+                showsContent[i].addEventListener("click", function() {
+                    let current = document.getElementsByClassName("active");
+                    if (current.length > 0) {
+                        current[0].className = current[0].className.replace(" active", "");
+                    }
+                    this.className += " active";
+                });
+            }
         }
-    }
-    ).catch((error) => {
-        console.log(error);
-    }
-);
+        ).catch((error) => {
+            console.error(error);
+        }
+    );
+}
 
-// let showListings = [
-//     { date: "Mon Sept 06 2021", venue: "Ronald Lane", location: "San Francisco, CA" },
-//     { date: "Tue Sept 21 2021", venue: "Pier 3 East", location: "San Francisco, CA" },
-//     { date: "Mon Oct 15 2021", venue: "View Lounge", location: "San Francisco, CA" },
-//     { date: "Mon Nov 06 2021", venue: "Hyatt Agency", location: "San Francisco, CA" },
-//     { date: "Mon Nov 26 2021", venue: "Moscow Center", location: "San Francisco, CA" },
-//     { date: "Mon Dec 15 2021", venue: "Press Club", location: "San Francisco, CA" },
-// ];
+getShows();
 
 function createShowCard(show) {
     const divEl = document.createElement("div");
@@ -41,51 +33,36 @@ function createShowCard(show) {
     let dateLabelEl = document.createElement("p");
     dateLabelEl.innerText = "Date";
     dateLabelEl.classList.add("shows__label", "shows__label--hidden");
-    console.log(dateLabelEl.innerText);
 
     let dateContentEl = document.createElement("p");
 
     const showDate = new Date(show.date);
-    console.log("show date is: " + showDate);
-    console.log("show date month was : " + (showDate.getMonth()+1));
-    console.log("show date UTC month was : " + (showDate.getUTCMonth()+1));
-    console.log("show date day was : " + showDate.getDate());
-    console.log("show date UTC day was : " + showDate.getUTCDate());
-    let showDate2 = `${showDate.getUTCDay()} ${((showDate.getUTCMonth()+1) < 10 ? '0' : '') + (showDate.getUTCMonth()+1)} ${(showDate.getUTCDate() < 10 ? '0' : '') + showDate.getUTCDate()} ${showDate.getUTCFullYear()}`;
-    console.log("updated showDate2: " + showDate2);
-    let showDateFormatted = new Date(showDate.getFullYear(), showDate.getMonth(), showDate.getUTCDate());
-    console.log("CORRECT formatted show date is: " + (showDateFormatted.toDateString()));
+    const showDateFormatted = new Date(showDate.getFullYear(), showDate.getMonth(), showDate.getUTCDate());
 
     dateContentEl.innerText = showDateFormatted.toDateString();
     dateContentEl.classList.add("shows__data", "shows__data--date");
-    console.log(dateContentEl.innerText);
 
     let venueLabelEl = document.createElement("p");
     venueLabelEl.innerText = "Venue";
     venueLabelEl.classList.add("shows__label", "shows__label--hidden");
-    console.log(venueLabelEl.innerText);
     
     let venueContentEl = document.createElement("p");
     venueContentEl.innerText = show.place;
     venueContentEl.classList.add("shows__data", "shows__data--venue");
-    console.log(venueContentEl.innerText);
 
     let locationLabelEl = document.createElement("p");
     locationLabelEl.innerText = "Location";
     locationLabelEl.classList.add("shows__label", "shows__label--hidden");
-    console.log(locationLabelEl.innerText);
 
     let locationContentEl = document.createElement("p");
     locationContentEl.innerText = show.location;
     locationContentEl.classList.add("shows__data");
-    console.log(locationContentEl.innerText);
 
     let ticketButtonEl = document.createElement("button");
     ticketButtonEl.classList.add("shows__button");
     ticketButtonEl.innerText = "Buy Tickets";
-    console.log(ticketButtonEl.innerText);
 
-    let hrEl = document.createElement("hr");
+    const hrEl = document.createElement("hr");
     hrEl.classList.add("shows__divider");
 
     divEl2.appendChild(dateLabelEl);
@@ -94,26 +71,19 @@ function createShowCard(show) {
     divEl2.appendChild(venueContentEl);
     divEl2.appendChild(locationLabelEl);
     divEl2.appendChild(locationContentEl);
-    
     divEl2.appendChild(ticketButtonEl);
 
     divEl.appendChild(divEl2);
-    console.log(divEl2);
-
     divEl.appendChild(hrEl);
-
-    console.log(divEl);
 
     return divEl;
 }
 
-// function renderShows() {
 function renderShows(showListings) {
     let showsEl = document.querySelector(".shows__section");
-    console.log(showsEl);
     showsEl.innerHTML = "";
 
-    let hiddenDivEl = document.createElement("div");
+    const hiddenDivEl = document.createElement("div");
     hiddenDivEl.classList.add("shows__dvl");
     let hiddenDateLabelEl = document.createElement("p");
     hiddenDateLabelEl.innerText = "Date";
@@ -136,17 +106,3 @@ function renderShows(showListings) {
         showsEl.appendChild(card);
     }
 }
-
-// renderShows();
-
-// let sC = document.getElementsByClassName("shows__content");
-// for (let i = 0; i < sC.length; i++) {
-//     sC[i].addEventListener("click", function() {
-//         console.log("Clicked on show");
-//         let current = document.getElementsByClassName("active");
-//         if (current.length > 0) {
-//             current[0].className = current[0].className.replace(" active", "");
-//         }
-//         this.className += " active";
-//     });
-// }
